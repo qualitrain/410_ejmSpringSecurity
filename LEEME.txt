@@ -1,0 +1,7 @@
+Para probar:
+
+MVC:
+http://localhost:8068/appQtx/
+
+API Web:
+http://localhost:8068/appQtx/api/catalogos/apellidos/A
