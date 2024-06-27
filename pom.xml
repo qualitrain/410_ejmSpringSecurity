@@ -10,7 +10,7 @@
 	</parent>
 	<groupId>mx.com.qtx</groupId>
 	<artifactId>410_ejmSpringSecurity</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>0.0.2-SNAPSHOT</version>
 	<name>410_ejmSpringSecurity</name>
 	<description>Ejemplo iterativo de funcionalidades Spring Security</description>
 	<url/>
@@ -55,6 +55,10 @@
 			<artifactId>spring-boot-configuration-processor</artifactId>
 			<optional>true</optional>
 		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-security</artifactId>
+		</dependency>		
 	</dependencies>
 
 	<build>
