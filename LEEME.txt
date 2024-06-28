@@ -5,3 +5,8 @@ http://localhost:8068/appQtx/
 
 API Web:
 http://localhost:8068/appQtx/api/catalogos/apellidos/A
+
+Se han añadido usuarios en memoria. Se usa la mecanica de Spring Security 6
+que difiere de la usada en la versión 5
+
+Para salir de la sesón use http://localhost:8068/appQtx/logout
