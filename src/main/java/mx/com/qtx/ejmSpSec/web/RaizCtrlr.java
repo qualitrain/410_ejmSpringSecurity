@@ -14,9 +14,25 @@ public class RaizCtrlr {
 	public RaizCtrlr() {
 		bitacora.info("instancia creada:RaizCtrlr()");
 	}
+	
 	@GetMapping("/")
 	public String getWelcomeFile(Model modelo) {
-		return "raizHtml";
+		return "vistaRaiz";
+	}
+	
+	@GetMapping("/admin")
+	public String getVistaAdmin(Model modelo) {
+		return "vistaAdmin";
+	}
+	
+	@GetMapping("/logistica")
+	public String getVistaLogistica(Model modelo) {
+		return "vistaLogistica";
+	}
+	
+	@GetMapping("/info")
+	public String getVistaInfo(Model modelo) {
+		return "vistaInfo";
 	}
 	
 }

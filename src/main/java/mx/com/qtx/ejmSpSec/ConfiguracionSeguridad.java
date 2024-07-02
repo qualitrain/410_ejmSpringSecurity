@@ -17,17 +17,22 @@ public class ConfiguracionSeguridad {
 	@Bean
 	public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
 		http
-			.authorizeHttpRequests((authorize) -> authorize.anyRequest()
-					                                       .authenticated()
+			.authorizeHttpRequests((authorize) ->  authorize
+			     .requestMatchers("/css/*").permitAll()
+				 .requestMatchers("/info","/vistaInfo.html").permitAll()
+			     .requestMatchers("/api/**").hasRole("AGENTE")
+			     .requestMatchers("/admin/**").hasRole("ADMIN")
+			     .requestMatchers("/logistica/**").hasAnyRole("LOGISTICA","ADMIN")
+			     .requestMatchers("/**").authenticated()
 			)
 			.httpBasic(Customizer.withDefaults())
 			.formLogin(Customizer.withDefaults());
 
 		return http.build();
 	}
-	
-	@Bean
-	public UserDetailsService userDetailsService() {
+
+    @Bean
+    UserDetailsService userDetailsService() {
 		UserDetails userDetailsAlex = User.withDefaultPasswordEncoder()
 			.username("alex")
 			.password("tekamachalko")
