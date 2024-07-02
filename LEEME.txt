@@ -6,7 +6,14 @@ http://localhost:8068/appQtx/
 API Web:
 http://localhost:8068/appQtx/api/catalogos/apellidos/A
 
-Se han añadido usuarios en memoria. Se usa la mecanica de Spring Security 6
-que difiere de la usada en la versión 5
+Se han añadido usuarios que se almacenan en una BD Mysql
+ - Se ha agregado una carpeta de scipts de base de datos. grupos.ddl y usuarios.ddl son la recomendacion de
+   Spring Security 6, pero requieren personalizarse al RDBMS que se usará
+ - Se ha ajustado el usuarios.ddl sugerido por Spring Security para compatibilizarlo con MySql 8
+ - Se tienen los ddls grupos.ddl 7 grupos_mysql8.ddl, pero no se usan aún por esta versión
+ - Se publica un nuevo bean "UserDetailsManager" que genera un servicio de gestión de usuarios que usa el 
+   esquema default sugerido por Spring Security
+ - Se configuran passwords explicitos en la configuración y se usa el DefaultPasswordEncoder (no recomendado)
+ - Se ha comentado el bean que publicaba el UserDetailsService para autenticación desde memoria
 
 Para salir de la sesón use http://localhost:8068/appQtx/logout
