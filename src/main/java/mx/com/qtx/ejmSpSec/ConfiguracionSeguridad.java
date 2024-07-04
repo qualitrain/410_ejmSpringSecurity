@@ -15,6 +15,8 @@ import org.springframework.security.provisioning.JdbcUserDetailsManager;
 import org.springframework.security.provisioning.UserDetailsManager;
 import org.springframework.security.web.SecurityFilterChain;
 
+import mx.com.qtx.ejmSpSec.seguridad.util.TestEncriptado;
+
 @Configuration
 @EnableWebSecurity
 public class ConfiguracionSeguridad {
@@ -60,6 +62,7 @@ public class ConfiguracionSeguridad {
     
     @Bean
     UserDetailsManager getGestorBdUsuarios(DataSource dataSource) {
+    	// Ver (y ejecutar): TestEncriptado.proponerCifradoPasswordsApp();
 		UserDetails usuarioAlex = User.withUsername("alex")
 				.password("{bcrypt}$2a$10$6vEhoAxBN4IkpcceHslnPOGZw/lXv8piL6hQNaAGUbqWKa.cIIwca")
 				.roles("USER","AGENTE","ADMIN")

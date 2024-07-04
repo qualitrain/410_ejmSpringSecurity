@@ -43,26 +43,17 @@ public class TestEncriptado {
 		System.out.println();
 		
 		PasswordEncoder codificadorPasswordsMultiple = PasswordEncoderFactories.createDelegatingPasswordEncoder();
-		
-		if(codificadorPasswordsMultiple.matches(passwdCrudo, pwdArgon2)) {
-			System.out.println("La cadena cifrada " + pwdArgon2 + " corresponde con [" + passwdCrudo + "]");
-		}
-		else {
-			System.out.println("La cadena cifrada " + pwdArgon2 + " NO corresponde con [" + passwdCrudo + "]");
-		}
-		
-		if(codificadorPasswordsMultiple.matches(passwdCrudo, pwdPbkdf2)) {
-			System.out.println("La cadena cifrada " + pwdPbkdf2 + " corresponde con [" + passwdCrudo + "]");
-		}
-		else {
-			System.out.println("La cadena cifrada " + pwdPbkdf2 + " NO corresponde con [" + passwdCrudo + "]");
-		}
-				
-		if(codificadorPasswordsMultiple.matches(passwdCrudo, pwdBCrypt)) {
-			System.out.println("La cadena cifrada " + pwdBCrypt + " corresponde con [" + passwdCrudo + "]");
-		}
-		else {
-			System.out.println("La cadena cifrada " + pwdBCrypt + " NO corresponde con [" + passwdCrudo + "]");
+		for(String hashI:List.of(pwdArgon2, pwdPbkdf2, pwdBCrypt)) {
+			if(codificadorPasswordsMultiple.matches(passwdCrudo, hashI)) {
+				System.out.println("\nLa cadena cifrada:\n" 
+			                      + hashI + "\n"
+			                      + "corresponde con [" + passwdCrudo + "]");
+			}
+			else {
+				System.out.println("\nLa cadena cifrada:\n" 
+			                      + hashI + "\n"
+						          + " NO corresponde con [" + passwdCrudo + "]");
+			}
 		}
 	}
 
@@ -109,7 +100,7 @@ public class TestEncriptado {
 	private static void proponerCifradoPasswordsApp() {
 		System.out.println("\nproponerCifradoPasswordsApp ----------------------------");
 		
-		System.out.println("\nUsuarios y passwords porpuestos para la configuracion de esta aplicacion:\n");
+		System.out.println("\nUsuarios y passwords propuestos para la configuracion de esta aplicacion:\n");
 		
 		PasswordEncoder codificadorPasswordsMultiple = PasswordEncoderFactories.createDelegatingPasswordEncoder();
 		List<String> lstUsuarios = List.of("alex",        "david",    "tavo");
