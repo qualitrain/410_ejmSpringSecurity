@@ -2,6 +2,8 @@ package mx.com.qtx.ejmSpSec;
 
 import javax.sql.DataSource;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.Customizer;
@@ -10,12 +12,12 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.core.userdetails.jdbc.JdbcDaoImpl;
 import org.springframework.security.provisioning.InMemoryUserDetailsManager;
 import org.springframework.security.provisioning.JdbcUserDetailsManager;
 import org.springframework.security.provisioning.UserDetailsManager;
 import org.springframework.security.web.SecurityFilterChain;
 
-import mx.com.qtx.ejmSpSec.seguridad.util.TestEncriptado;
 
 @Configuration
 @EnableWebSecurity
@@ -60,8 +62,8 @@ public class ConfiguracionSeguridad {
 		return new InMemoryUserDetailsManager(userDetailsAlex, userDetailsDavid, userDetailsTavo);
 	}
     
-    @Bean
-    UserDetailsManager getGestorBdUsuarios(DataSource dataSource) {
+//  @Bean
+    UserDetailsManager getGestorBdUsuariosEsquemaDefault(@Qualifier("bdSegdDefault") DataSource dataSource) {
     	// Ver (y ejecutar): TestEncriptado.proponerCifradoPasswordsApp();
 		UserDetails usuarioAlex = User.withUsername("alex")
 				.password("{bcrypt}$2a$10$6vEhoAxBN4IkpcceHslnPOGZw/lXv8piL6hQNaAGUbqWKa.cIIwca")
@@ -88,6 +90,27 @@ public class ConfiguracionSeguridad {
        	   gestorUsuariosBD.createUser(usuarioTavo);
     	
     	return gestorUsuariosBD;
-    }    
+    }
+    
+    @Bean
+    UserDetailsService getGestorBdUsuariosPersonalizada(@Qualifier("bdSegPersonalizada") DataSource dataSource) {
+    	//Se usa una BD Personalizada. Ya debe contener los datos de usuarios y roles
+		final String QUERY_DATOS_USUARIO_X_NOMBRE = "SELECT usr_nombre, usr_paswd, usr_habilitado "
+				+ "FROM usuario WHERE usr_nombre = ?";
+
+		//Los roles deben estar escritos en los registros de la base de datos con el prefijo "ROLE_"
+		//Por ejemplo, ROLE_AGENTE o ROLE_LOGISTICA
+		final String QUERY_ROLES_X_USUARIO ="SELECT usr_nombre, aut_nombre "
+				+ "FROM usuario, autoridad "
+				+ "WHERE usr_nombre = ? "
+				+ "AND usr_nombre = aut_nombre_usr";
+		
+		JdbcDaoImpl gestorBdUsuariosPersonalizada = new JdbcDaoImpl();
+		gestorBdUsuariosPersonalizada.setDataSource(dataSource);
+		gestorBdUsuariosPersonalizada.setUsersByUsernameQuery(QUERY_DATOS_USUARIO_X_NOMBRE);
+		gestorBdUsuariosPersonalizada.setAuthoritiesByUsernameQuery(QUERY_ROLES_X_USUARIO);
+		
+		return gestorBdUsuariosPersonalizada;
+    }
 
 }
