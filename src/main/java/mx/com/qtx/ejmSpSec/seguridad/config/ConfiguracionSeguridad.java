@@ -1,8 +1,7 @@
-package mx.com.qtx.ejmSpSec;
+package mx.com.qtx.ejmSpSec.seguridad.config;
 
 import javax.sql.DataSource;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -17,6 +16,8 @@ import org.springframework.security.provisioning.InMemoryUserDetailsManager;
 import org.springframework.security.provisioning.JdbcUserDetailsManager;
 import org.springframework.security.provisioning.UserDetailsManager;
 import org.springframework.security.web.SecurityFilterChain;
+
+import mx.com.qtx.ejmSpSec.seguridad.servicios.ServicioUserDetailQtx;
 
 
 @Configuration
@@ -75,7 +76,7 @@ public class ConfiguracionSeguridad {
 					.roles("AGENTE")
 					.build();
 			
-			UserDetails usuarioTavo = User.withUsername("alex")
+			UserDetails usuarioTavo = User.withUsername("tavo")
 					.password("{bcrypt}$2a$10$H1EqBwIs5ZLnnePgZODr5uQpCxgw0wtpkTJhEEzuaSUzRQsFmFqhy")
 					.roles("LOGISTICA")
 					.build();		
@@ -92,7 +93,7 @@ public class ConfiguracionSeguridad {
     	return gestorUsuariosBD;
     }
     
-    @Bean
+//    @Bean
     UserDetailsService getGestorBdUsuariosPersonalizada(@Qualifier("bdSegPersonalizada") DataSource dataSource) {
     	//Se usa una BD Personalizada. Ya debe contener los datos de usuarios y roles
 		final String QUERY_DATOS_USUARIO_X_NOMBRE = "SELECT usr_nombre, usr_paswd, usr_habilitado "
@@ -113,4 +114,8 @@ public class ConfiguracionSeguridad {
 		return gestorBdUsuariosPersonalizada;
     }
 
+   @Bean
+   UserDetailsService getGestorBdUsuariosPersonalizadaQtx(@Qualifier("bdSegPersonalizada") DataSource dataSource) {
+    	return new ServicioUserDetailQtx();
+    }
 }

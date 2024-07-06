@@ -1,4 +1,4 @@
-package mx.com.qtx.ejmSpSec;
+package mx.com.qtx.ejmSpSec.seguridad.config;
 
 import javax.sql.DataSource;
 
@@ -29,12 +29,8 @@ public class DataSourceSeguridadDefaultSchema {
 	private static final String USER_BD_ESQ_PERSONALIZADO = "root"; 
 	private static final String PASSWD_BD_ESQ_PERSONALIZADO = "root"; 
 	
-	
-	
-	
 	private static Logger bitacora = LoggerFactory.getLogger(DataSourceSeguridadDefaultSchema.class);
-	
-	
+		
 	public DataSourceSeguridadDefaultSchema() {
 	}
 	
