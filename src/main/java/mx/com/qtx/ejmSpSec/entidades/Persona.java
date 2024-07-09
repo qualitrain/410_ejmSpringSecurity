@@ -2,15 +2,32 @@ package mx.com.qtx.ejmSpSec.entidades;
 
 import java.util.Date;
 
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
 import mx.com.qtx.ejmSpSec.util.Util;
 
+@Entity
 public class Persona {
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name="per_id")
 	private long idPersona;
+	@Column(name="per_ap_paterno")
 	private String apPaterno;
+	@Column(name="per_ap_materno")
 	private String apMaterno;
+	@Column(name="per_nombres")
 	private String nombres;
+	@Column(name="per_fec_nac")
 	private Date fecNacimiento;
 	
+	public Persona() {
+		super();
+	}
+
 	public Persona(long idPersona, String apPaterno, String apMaterno, String nombres) {
 		super();
 		this.idPersona = idPersona;

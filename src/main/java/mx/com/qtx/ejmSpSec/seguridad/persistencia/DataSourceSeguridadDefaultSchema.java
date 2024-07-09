@@ -1,4 +1,4 @@
-package mx.com.qtx.ejmSpSec.seguridad.config;
+package mx.com.qtx.ejmSpSec.seguridad.persistencia;
 
 import javax.sql.DataSource;
 

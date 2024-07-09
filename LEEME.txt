@@ -8,8 +8,8 @@ http://localhost:8068/appQtx/api/catalogos/apellidos/A
 
 Para salir de la sesón use http://localhost:8068/appQtx/logout
 
-Encriptado de Passwords:
+Se usan dos esquemas de base de datos separados
+a) Para la Aplicación
+b) Para Seguridad
 
-Se han colocado passwords codificados en la configuración
-Ejecute como aplicación de escritorio: src/main/java/mx.com.qtx.ejmSpSec.seguridad.util.TestEncriptado.java
-El método proponerCifradoPasswordsApp() se usó para definir los passwords codificados en la configuración
+Requiere MySql 8+ (Con la versión 5 se tendrá un error de ejecución por el uso de JPA y conflicto con el dialecto SQL)
