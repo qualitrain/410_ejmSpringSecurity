@@ -115,7 +115,7 @@ public class ConfiguracionSeguridad {
     }
 
    @Bean
-   UserDetailsService getGestorBdUsuariosPersonalizadaQtx(@Qualifier("bdSegPersonalizada") DataSource dataSource) {
+   UserDetailsService getGestorBdUsuariosPersonalizadaQtx() {
     	return new ServicioUserDetailQtx();
     }
 }
