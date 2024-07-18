@@ -1,0 +1,345 @@
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+
+INFO  mx.com.qtx.ejmSpSec.Application          Starting Application using Java 17.0.11 with PID 10024 (C:\qtx\workspaces\2024\Sts_testMod05DiploArq2024\410_ejmSpringSecurity\target\classes started by quali in C:\qtx\workspaces\2024\Sts_testMod05DiploArq2024\410_ejmSpringSecurity)
+INFO  o.s.b.w.embedded.tomcat.TomcatWebServer  Tomcat initialized with port 8068 (http)
+INFO  o.apache.catalina.core.StandardService   Starting service [Tomcat]
+INFO  m.c.q.e.persistencia.DataSourceBean      Se ha instanciado data source mysql que apunta a BD:qtxtestarq
+INFO  m.c.q.e.p.ConfigRepositoriosJpaApp       Se ha finalizado la configuración del bean del EntityManagerFactory para la aplicación
+INFO  com.zaxxer.hikari.HikariDataSource       HikariPool-1 - Starting...
+INFO  com.zaxxer.hikari.pool.HikariPool        HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@371f0f62
+INFO  com.zaxxer.hikari.HikariDataSource       HikariPool-1 - Start completed.
+INFO  j.LocalContainerEntityManagerFactoryBean Initialized JPA EntityManagerFactory for persistence unit 'appQtx'
+INFO  q.e.s.p.DataSourceSeguridadDefaultSchema Se ha instanciado data source mysql que apunta a BD:segbdperssv6
+INFO  c.q.e.s.p.ConfigRepositoriosJpaSeguridad Se ha finalizado la configuración del bean del EntityManagerFactory para seguridad
+INFO  com.zaxxer.hikari.HikariDataSource       HikariPool-2 - Starting...
+INFO  com.zaxxer.hikari.pool.HikariPool        HikariPool-2 - Added connection com.mysql.cj.jdbc.ConnectionImpl@123f6d4b
+INFO  com.zaxxer.hikari.HikariDataSource       HikariPool-2 - Start completed.
+INFO  mx.com.qtx.ejmSpSec.web.RaizCtrlr        instancia creada:RaizCtrlr()
+INFO  m.c.q.e.p.ConfigRepositoriosJpaApp       Se ha finalizado la configuración del TransactionManager para la aplicación
+INFO  m.c.q.e.s.s.ServicioUserDetailQtx        ServicioUserDetailQtx instanciado
+INFO  r$InitializeUserDetailsManagerConfigurer Global AuthenticationManager configured with UserDetailsService bean with name getGestorBdUsuariosPersonalizadaQtx
+DEBUG o.s.s.web.DefaultSecurityFilterChain     Will secure any request with filters: DisableEncodeUrlFilter, WebAsyncManagerIntegrationFilter, SecurityContextHolderFilter, HeaderWriterFilter, CorsFilter, CsrfFilter, LogoutFilter, UsernamePasswordAuthenticationFilter, DefaultLoginPageGeneratingFilter, DefaultLogoutPageGeneratingFilter, BasicAuthenticationFilter, RequestCacheAwareFilter, SecurityContextHolderAwareRequestFilter, AnonymousAuthenticationFilter, ExceptionTranslationFilter, AuthorizationFilter
+INFO  c.q.e.s.p.ConfigRepositoriosJpaSeguridad Se ha finalizado la configuración del TransactionManager para seguridad
+INFO  o.s.b.w.embedded.tomcat.TomcatWebServer  Tomcat started on port 8068 (http) with context path '/appQtx'
+INFO  mx.com.qtx.ejmSpSec.Application          Started Application in 6.052 seconds (process running for 6.954)
+INFO  o.a.c.c.C.[.[localhost].[/appQtx]        Initializing Spring DispatcherServlet 'dispatcherServlet'
+INFO  o.s.web.servlet.DispatcherServlet        Initializing Servlet 'dispatcherServlet'
+INFO  o.s.web.servlet.DispatcherServlet        Completed initialization in 2 ms
+TRACE o.s.security.web.FilterChainProxy        Trying to match request against DefaultSecurityFilterChain [RequestMatcher=any request, Filters=[org.springframework.security.web.session.DisableEncodeUrlFilter@57c35657, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@299a8575, org.springframework.security.web.context.SecurityContextHolderFilter@7415bdb2, org.springframework.security.web.header.HeaderWriterFilter@2dad79cb, org.springframework.web.filter.CorsFilter@40df5ed0, org.springframework.security.web.csrf.CsrfFilter@8c15c11, org.springframework.security.web.authentication.logout.LogoutFilter@1c446a9e, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@63f70d54, org.springframework.security.web.authentication.ui.DefaultLoginPageGeneratingFilter@aaaa953, org.springframework.security.web.authentication.ui.DefaultLogoutPageGeneratingFilter@1149dbfe, org.springframework.security.web.authentication.www.BasicAuthenticationFilter@3712e76b, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@8773ff2, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@68e69bcb, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@5cf5466e, org.springframework.security.web.access.ExceptionTranslationFilter@1773eb55, org.springframework.security.web.access.intercept.AuthorizationFilter@42853a7f]] (1/1)
+DEBUG o.s.security.web.FilterChainProxy        Securing GET /
+TRACE o.s.security.web.FilterChainProxy        Invoking DisableEncodeUrlFilter (1/16)
+TRACE o.s.security.web.FilterChainProxy        Invoking WebAsyncManagerIntegrationFilter (2/16)
+TRACE o.s.security.web.FilterChainProxy        Invoking SecurityContextHolderFilter (3/16)
+TRACE o.s.security.web.FilterChainProxy        Invoking HeaderWriterFilter (4/16)
+TRACE o.s.security.web.FilterChainProxy        Invoking CorsFilter (5/16)
+TRACE o.s.security.web.FilterChainProxy        Invoking CsrfFilter (6/16)
+TRACE o.s.security.web.csrf.CsrfFilter         Did not protect against CSRF since request did not match CsrfNotRequired [TRACE, HEAD, GET, OPTIONS]
+TRACE o.s.security.web.FilterChainProxy        Invoking LogoutFilter (7/16)
+TRACE o.s.s.w.a.logout.LogoutFilter            Did not match request to Ant [pattern='/logout', POST]
+TRACE o.s.security.web.FilterChainProxy        Invoking UsernamePasswordAuthenticationFilter (8/16)
+TRACE w.a.UsernamePasswordAuthenticationFilter Did not match request to Ant [pattern='/login', POST]
+TRACE o.s.security.web.FilterChainProxy        Invoking DefaultLoginPageGeneratingFilter (9/16)
+TRACE o.s.security.web.FilterChainProxy        Invoking DefaultLogoutPageGeneratingFilter (10/16)
+TRACE .w.a.u.DefaultLogoutPageGeneratingFilter Did not render default logout page since request did not match [Ant [pattern='/logout', GET]]
+TRACE o.s.security.web.FilterChainProxy        Invoking BasicAuthenticationFilter (11/16)
+TRACE o.s.s.w.a.www.BasicAuthenticationFilter  Did not process authentication request since failed to find username and password in Basic Authorization header
+TRACE o.s.security.web.FilterChainProxy        Invoking RequestCacheAwareFilter (12/16)
+TRACE o.s.s.w.s.HttpSessionRequestCache        matchingRequestParameterName is required for getMatchingRequest to lookup a value, but not provided
+TRACE o.s.security.web.FilterChainProxy        Invoking SecurityContextHolderAwareRequestFilter (13/16)
+TRACE o.s.security.web.FilterChainProxy        Invoking AnonymousAuthenticationFilter (14/16)
+TRACE o.s.security.web.FilterChainProxy        Invoking ExceptionTranslationFilter (15/16)
+TRACE o.s.security.web.FilterChainProxy        Invoking AuthorizationFilter (16/16)
+TRACE estMatcherDelegatingAuthorizationManager Authorizing GET /
+TRACE estMatcherDelegatingAuthorizationManager Checking authorization on GET / using org.springframework.security.authorization.AuthenticatedAuthorizationManager@d472de5
+TRACE w.c.HttpSessionSecurityContextRepository Did not find SecurityContext in HttpSession B3536A7621C79E66727DEA0159E3D169 using the SPRING_SECURITY_CONTEXT session attribute
+TRACE .s.s.w.c.SupplierDeferredSecurityContext Created SecurityContextImpl [Null authentication]
+TRACE .s.s.w.c.SupplierDeferredSecurityContext Created SecurityContextImpl [Null authentication]
+TRACE o.s.s.w.a.AnonymousAuthenticationFilter  Set SecurityContextHolder to AnonymousAuthenticationToken [Principal=anonymousUser, Credentials=[PROTECTED], Authenticated=true, Details=WebAuthenticationDetails [RemoteIpAddress=0:0:0:0:0:0:0:1, SessionId=B3536A7621C79E66727DEA0159E3D169], Granted Authorities=[ROLE_ANONYMOUS]]
+TRACE o.s.s.w.a.ExceptionTranslationFilter     Sending AnonymousAuthenticationToken [Principal=anonymousUser, Credentials=[PROTECTED], Authenticated=true, Details=WebAuthenticationDetails [RemoteIpAddress=0:0:0:0:0:0:0:1, SessionId=B3536A7621C79E66727DEA0159E3D169], Granted Authorities=[ROLE_ANONYMOUS]] to authentication entry point since access is denied
+
+org.springframework.security.access.AccessDeniedException: Access Denied
+	at org.springframework.security.web.access.intercept.AuthorizationFilter.doFilter(AuthorizationFilter.java:98) ...
+	
+DEBUG o.s.s.w.s.HttpSessionRequestCache        Saved request http://localhost:8068/appQtx/?continue to session
+DEBUG s.w.a.DelegatingAuthenticationEntryPoint Trying to match using Or [RequestHeaderRequestMatcher [expectedHeaderName=X-Requested-With, expectedHeaderValue=XMLHttpRequest], And [Not [MediaTypeRequestMatcher [contentNegotiationStrategy=org.springframework.web.accept.ContentNegotiationManager@72071bf4, matchingMediaTypes=[text/html], useEquals=false, ignoredMediaTypes=[]]], MediaTypeRequestMatcher [contentNegotiationStrategy=org.springframework.web.accept.ContentNegotiationManager@72071bf4, matchingMediaTypes=[application/atom+xml, application/x-www-form-urlencoded, application/json, application/octet-stream, application/xml, multipart/form-data, text/xml], useEquals=false, ignoredMediaTypes=[*/*]]], MediaTypeRequestMatcher [contentNegotiationStrategy=org.springframework.web.accept.ContentNegotiationManager@72071bf4, matchingMediaTypes=[*/*], useEquals=true, ignoredMediaTypes=[]]]
+DEBUG s.w.a.DelegatingAuthenticationEntryPoint Trying to match using And [Not [RequestHeaderRequestMatcher [expectedHeaderName=X-Requested-With, expectedHeaderValue=XMLHttpRequest]], MediaTypeRequestMatcher [contentNegotiationStrategy=org.springframework.web.accept.ContentNegotiationManager@72071bf4, matchingMediaTypes=[application/xhtml+xml, image/*, text/html, text/plain], useEquals=false, ignoredMediaTypes=[*/*]]]
+DEBUG s.w.a.DelegatingAuthenticationEntryPoint Match found! Executing org.springframework.security.web.authentication.LoginUrlAuthenticationEntryPoint@4927f7a9
+DEBUG o.s.s.web.DefaultRedirectStrategy        Redirecting to http://localhost:8068/appQtx/login
+TRACE o.s.s.w.header.writers.HstsHeaderWriter  Not injecting HSTS header since it did not match request to [Is Secure]
+TRACE o.s.security.web.FilterChainProxy        Trying to match request against DefaultSecurityFilterChain [RequestMatcher=any request, Filters=[org.springframework.security.web.session.DisableEncodeUrlFilter@57c35657, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@299a8575, org.springframework.security.web.context.SecurityContextHolderFilter@7415bdb2, org.springframework.security.web.header.HeaderWriterFilter@2dad79cb, org.springframework.web.filter.CorsFilter@40df5ed0, org.springframework.security.web.csrf.CsrfFilter@8c15c11, org.springframework.security.web.authentication.logout.LogoutFilter@1c446a9e, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@63f70d54, org.springframework.security.web.authentication.ui.DefaultLoginPageGeneratingFilter@aaaa953, org.springframework.security.web.authentication.ui.DefaultLogoutPageGeneratingFilter@1149dbfe, org.springframework.security.web.authentication.www.BasicAuthenticationFilter@3712e76b, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@8773ff2, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@68e69bcb, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@5cf5466e, org.springframework.security.web.access.ExceptionTranslationFilter@1773eb55, org.springframework.security.web.access.intercept.AuthorizationFilter@42853a7f]] (1/1)
+DEBUG o.s.security.web.FilterChainProxy        Securing GET /login
+TRACE o.s.security.web.FilterChainProxy        Invoking DisableEncodeUrlFilter (1/16)
+TRACE o.s.security.web.FilterChainProxy        Invoking WebAsyncManagerIntegrationFilter (2/16)
+TRACE o.s.security.web.FilterChainProxy        Invoking SecurityContextHolderFilter (3/16)
+TRACE o.s.security.web.FilterChainProxy        Invoking HeaderWriterFilter (4/16)
+TRACE o.s.security.web.FilterChainProxy        Invoking CorsFilter (5/16)
+TRACE o.s.security.web.FilterChainProxy        Invoking CsrfFilter (6/16)
+TRACE o.s.security.web.csrf.CsrfFilter         Did not protect against CSRF since request did not match CsrfNotRequired [TRACE, HEAD, GET, OPTIONS]
+TRACE o.s.security.web.FilterChainProxy        Invoking LogoutFilter (7/16)
+TRACE o.s.s.w.a.logout.LogoutFilter            Did not match request to Ant [pattern='/logout', POST]
+TRACE w.a.UsernamePasswordAuthenticationFilter Did not match request to Ant [pattern='/login', POST]
+TRACE o.s.security.web.FilterChainProxy        Invoking UsernamePasswordAuthenticationFilter (8/16)
+TRACE o.s.security.web.FilterChainProxy        Invoking DefaultLoginPageGeneratingFilter (9/16)
+TRACE o.s.s.w.header.writers.HstsHeaderWriter  Not injecting HSTS header since it did not match request to [Is Secure]
+TRACE o.s.security.web.FilterChainProxy        Trying to match request against DefaultSecurityFilterChain [RequestMatcher=any request, Filters=[org.springframework.security.web.session.DisableEncodeUrlFilter@57c35657, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@299a8575, org.springframework.security.web.context.SecurityContextHolderFilter@7415bdb2, org.springframework.security.web.header.HeaderWriterFilter@2dad79cb, org.springframework.web.filter.CorsFilter@40df5ed0, org.springframework.security.web.csrf.CsrfFilter@8c15c11, org.springframework.security.web.authentication.logout.LogoutFilter@1c446a9e, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@63f70d54, org.springframework.security.web.authentication.ui.DefaultLoginPageGeneratingFilter@aaaa953, org.springframework.security.web.authentication.ui.DefaultLogoutPageGeneratingFilter@1149dbfe, org.springframework.security.web.authentication.www.BasicAuthenticationFilter@3712e76b, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@8773ff2, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@68e69bcb, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@5cf5466e, org.springframework.security.web.access.ExceptionTranslationFilter@1773eb55, org.springframework.security.web.access.intercept.AuthorizationFilter@42853a7f]] (1/1)
+DEBUG o.s.security.web.FilterChainProxy        Securing POST /login
+TRACE o.s.security.web.FilterChainProxy        Invoking DisableEncodeUrlFilter (1/16)
+TRACE o.s.security.web.FilterChainProxy        Invoking WebAsyncManagerIntegrationFilter (2/16)
+TRACE o.s.security.web.FilterChainProxy        Invoking SecurityContextHolderFilter (3/16)
+TRACE o.s.security.web.FilterChainProxy        Invoking HeaderWriterFilter (4/16)
+TRACE o.s.security.web.FilterChainProxy        Invoking CorsFilter (5/16)
+TRACE o.s.security.web.FilterChainProxy        Invoking CsrfFilter (6/16)
+TRACE o.s.security.web.FilterChainProxy        Invoking LogoutFilter (7/16)
+TRACE o.s.s.w.a.logout.LogoutFilter            Did not match request to Ant [pattern='/logout', POST]
+TRACE o.s.security.web.FilterChainProxy        Invoking UsernamePasswordAuthenticationFilter (8/16)
+TRACE o.s.s.authentication.ProviderManager     Authenticating request with DaoAuthenticationProvider (1/1)
+INFO  m.c.q.e.s.p.GestorDatosSecRepositoryJPA  getUsuarioXID( alex )
+Hibernate: 
+    select
+        u1_0.usr_nombre,
+        a1_0.aut_nombre_usr,
+        a1_0.aut_id,
+        a1_0.aut_nombre,
+        u1_0.usr_habilitado,
+        u1_0.usr_paswd 
+    from
+        Usuario u1_0 
+    left join
+        Autoridad a1_0 
+            on u1_0.usr_nombre=a1_0.aut_nombre_usr 
+    where
+        u1_0.usr_nombre=?
+DEBUG o.s.s.a.dao.DaoAuthenticationProvider    Authenticated user
+TRACE s.CompositeSessionAuthenticationStrategy Preparing session with ChangeSessionIdAuthenticationStrategy (1/2)
+DEBUG .s.ChangeSessionIdAuthenticationStrategy Changed session id from B3536A7621C79E66727DEA0159E3D169
+TRACE s.CompositeSessionAuthenticationStrategy Preparing session with CsrfAuthenticationStrategy (2/2)
+DEBUG o.s.s.w.csrf.CsrfAuthenticationStrategy  Replaced CSRF Token
+DEBUG w.c.HttpSessionSecurityContextRepository Stored SecurityContextImpl [Authentication=UsernamePasswordAuthenticationToken [Principal=mx.com.qtx.ejmSpSec.seguridad.servicios.QtxUserDetails@177524d6, Credentials=[PROTECTED], Authenticated=true, Details=WebAuthenticationDetails [RemoteIpAddress=0:0:0:0:0:0:0:1, SessionId=B3536A7621C79E66727DEA0159E3D169], Granted Authorities=[ROLE_ADMIN, ROLE_AGENTE]]] to HttpSession [org.apache.catalina.session.StandardSessionFacade@23708eb9]
+DEBUG w.a.UsernamePasswordAuthenticationFilter Set SecurityContextHolder to UsernamePasswordAuthenticationToken [Principal=mx.com.qtx.ejmSpSec.seguridad.servicios.QtxUserDetails@177524d6, Credentials=[PROTECTED], Authenticated=true, Details=WebAuthenticationDetails [RemoteIpAddress=0:0:0:0:0:0:0:1, SessionId=B3536A7621C79E66727DEA0159E3D169], Granted Authorities=[ROLE_ADMIN, ROLE_AGENTE]]
+DEBUG o.s.s.web.DefaultRedirectStrategy        Redirecting to http://localhost:8068/appQtx/?continue
+TRACE o.s.s.w.header.writers.HstsHeaderWriter  Not injecting HSTS header since it did not match request to [Is Secure]
+TRACE o.s.security.web.FilterChainProxy        Trying to match request against DefaultSecurityFilterChain [RequestMatcher=any request, Filters=[org.springframework.security.web.session.DisableEncodeUrlFilter@57c35657, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@299a8575, org.springframework.security.web.context.SecurityContextHolderFilter@7415bdb2, org.springframework.security.web.header.HeaderWriterFilter@2dad79cb, org.springframework.web.filter.CorsFilter@40df5ed0, org.springframework.security.web.csrf.CsrfFilter@8c15c11, org.springframework.security.web.authentication.logout.LogoutFilter@1c446a9e, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@63f70d54, org.springframework.security.web.authentication.ui.DefaultLoginPageGeneratingFilter@aaaa953, org.springframework.security.web.authentication.ui.DefaultLogoutPageGeneratingFilter@1149dbfe, org.springframework.security.web.authentication.www.BasicAuthenticationFilter@3712e76b, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@8773ff2, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@68e69bcb, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@5cf5466e, org.springframework.security.web.access.ExceptionTranslationFilter@1773eb55, org.springframework.security.web.access.intercept.AuthorizationFilter@42853a7f]] (1/1)
+DEBUG o.s.security.web.FilterChainProxy        Securing GET /?continue
+TRACE o.s.security.web.FilterChainProxy        Invoking DisableEncodeUrlFilter (1/16)
+TRACE o.s.security.web.FilterChainProxy        Invoking WebAsyncManagerIntegrationFilter (2/16)
+TRACE o.s.security.web.FilterChainProxy        Invoking SecurityContextHolderFilter (3/16)
+TRACE o.s.security.web.FilterChainProxy        Invoking HeaderWriterFilter (4/16)
+TRACE o.s.security.web.FilterChainProxy        Invoking CorsFilter (5/16)
+TRACE o.s.security.web.FilterChainProxy        Invoking CsrfFilter (6/16)
+TRACE o.s.security.web.csrf.CsrfFilter         Did not protect against CSRF since request did not match CsrfNotRequired [TRACE, HEAD, GET, OPTIONS]
+TRACE o.s.security.web.FilterChainProxy        Invoking LogoutFilter (7/16)
+TRACE o.s.s.w.a.logout.LogoutFilter            Did not match request to Ant [pattern='/logout', POST]
+TRACE o.s.security.web.FilterChainProxy        Invoking UsernamePasswordAuthenticationFilter (8/16)
+TRACE w.a.UsernamePasswordAuthenticationFilter Did not match request to Ant [pattern='/login', POST]
+TRACE o.s.security.web.FilterChainProxy        Invoking DefaultLoginPageGeneratingFilter (9/16)
+TRACE o.s.security.web.FilterChainProxy        Invoking DefaultLogoutPageGeneratingFilter (10/16)
+TRACE .w.a.u.DefaultLogoutPageGeneratingFilter Did not render default logout page since request did not match [Ant [pattern='/logout', GET]]
+TRACE o.s.security.web.FilterChainProxy        Invoking BasicAuthenticationFilter (11/16)
+TRACE o.s.s.w.a.www.BasicAuthenticationFilter  Did not process authentication request since failed to find username and password in Basic Authorization header
+TRACE o.s.security.web.FilterChainProxy        Invoking RequestCacheAwareFilter (12/16)
+TRACE o.s.s.w.s.HttpSessionRequestCache        Removing DefaultSavedRequest from session if present
+DEBUG o.s.s.w.s.HttpSessionRequestCache        Loaded matching saved request http://localhost:8068/appQtx/?continue
+TRACE o.s.security.web.FilterChainProxy        Invoking SecurityContextHolderAwareRequestFilter (13/16)
+TRACE o.s.security.web.FilterChainProxy        Invoking AnonymousAuthenticationFilter (14/16)
+TRACE o.s.security.web.FilterChainProxy        Invoking ExceptionTranslationFilter (15/16)
+TRACE o.s.security.web.FilterChainProxy        Invoking AuthorizationFilter (16/16)
+TRACE estMatcherDelegatingAuthorizationManager Authorizing GET /?continue
+TRACE estMatcherDelegatingAuthorizationManager Checking authorization on GET /?continue using org.springframework.security.authorization.AuthenticatedAuthorizationManager@d472de5
+TRACE w.c.HttpSessionSecurityContextRepository Retrieved SecurityContextImpl [Authentication=UsernamePasswordAuthenticationToken [Principal=mx.com.qtx.ejmSpSec.seguridad.servicios.QtxUserDetails@177524d6, Credentials=[PROTECTED], Authenticated=true, Details=WebAuthenticationDetails [RemoteIpAddress=0:0:0:0:0:0:0:1, SessionId=B3536A7621C79E66727DEA0159E3D169], Granted Authorities=[ROLE_ADMIN, ROLE_AGENTE]]] from SPRING_SECURITY_CONTEXT
+TRACE o.s.s.w.a.AnonymousAuthenticationFilter  Did not set SecurityContextHolder since already authenticated UsernamePasswordAuthenticationToken [Principal=mx.com.qtx.ejmSpSec.seguridad.servicios.QtxUserDetails@177524d6, Credentials=[PROTECTED], Authenticated=true, Details=WebAuthenticationDetails [RemoteIpAddress=0:0:0:0:0:0:0:1, SessionId=B3536A7621C79E66727DEA0159E3D169], Granted Authorities=[ROLE_ADMIN, ROLE_AGENTE]]
+DEBUG o.s.security.web.FilterChainProxy        Secured GET /?continue
+TRACE o.s.security.web.FilterChainProxy        Trying to match request against DefaultSecurityFilterChain [RequestMatcher=any request, Filters=[org.springframework.security.web.session.DisableEncodeUrlFilter@57c35657, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@299a8575, org.springframework.security.web.context.SecurityContextHolderFilter@7415bdb2, org.springframework.security.web.header.HeaderWriterFilter@2dad79cb, org.springframework.web.filter.CorsFilter@40df5ed0, org.springframework.security.web.csrf.CsrfFilter@8c15c11, org.springframework.security.web.authentication.logout.LogoutFilter@1c446a9e, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@63f70d54, org.springframework.security.web.authentication.ui.DefaultLoginPageGeneratingFilter@aaaa953, org.springframework.security.web.authentication.ui.DefaultLogoutPageGeneratingFilter@1149dbfe, org.springframework.security.web.authentication.www.BasicAuthenticationFilter@3712e76b, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@8773ff2, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@68e69bcb, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@5cf5466e, org.springframework.security.web.access.ExceptionTranslationFilter@1773eb55, org.springframework.security.web.access.intercept.AuthorizationFilter@42853a7f]] (1/1)
+DEBUG o.s.security.web.FilterChainProxy        Securing GET /vistaRaiz.html?continue
+TRACE o.s.security.web.FilterChainProxy        Invoking DisableEncodeUrlFilter (1/16)
+TRACE o.s.security.web.FilterChainProxy        Invoking WebAsyncManagerIntegrationFilter (2/16)
+TRACE o.s.security.web.FilterChainProxy        Invoking SecurityContextHolderFilter (3/16)
+TRACE o.s.security.web.FilterChainProxy        Invoking HeaderWriterFilter (4/16)
+TRACE o.s.security.web.FilterChainProxy        Invoking CorsFilter (5/16)
+TRACE o.s.security.web.FilterChainProxy        Invoking CsrfFilter (6/16)
+TRACE o.s.security.web.FilterChainProxy        Invoking LogoutFilter (7/16)
+TRACE o.s.s.w.a.logout.LogoutFilter            Did not match request to Ant [pattern='/logout', POST]
+TRACE o.s.security.web.FilterChainProxy        Invoking UsernamePasswordAuthenticationFilter (8/16)
+TRACE w.a.UsernamePasswordAuthenticationFilter Did not match request to Ant [pattern='/login', POST]
+TRACE o.s.security.web.FilterChainProxy        Invoking DefaultLoginPageGeneratingFilter (9/16)
+TRACE o.s.security.web.FilterChainProxy        Invoking DefaultLogoutPageGeneratingFilter (10/16)
+TRACE o.s.security.web.FilterChainProxy        Invoking BasicAuthenticationFilter (11/16)
+TRACE o.s.security.web.FilterChainProxy        Invoking RequestCacheAwareFilter (12/16)
+TRACE o.s.s.w.s.HttpSessionRequestCache        No saved request
+TRACE o.s.security.web.FilterChainProxy        Invoking SecurityContextHolderAwareRequestFilter (13/16)
+TRACE o.s.security.web.FilterChainProxy        Invoking AnonymousAuthenticationFilter (14/16)
+TRACE o.s.security.web.FilterChainProxy        Invoking ExceptionTranslationFilter (15/16)
+TRACE o.s.security.web.FilterChainProxy        Invoking AuthorizationFilter (16/16)
+TRACE estMatcherDelegatingAuthorizationManager Authorizing GET /vistaRaiz.html?continue
+TRACE estMatcherDelegatingAuthorizationManager Checking authorization on GET /vistaRaiz.html?continue using org.springframework.security.authorization.AuthenticatedAuthorizationManager@d472de5
+TRACE o.s.s.w.a.AnonymousAuthenticationFilter  Did not set SecurityContextHolder since already authenticated UsernamePasswordAuthenticationToken [Principal=mx.com.qtx.ejmSpSec.seguridad.servicios.QtxUserDetails@177524d6, Credentials=[PROTECTED], Authenticated=true, Details=WebAuthenticationDetails [RemoteIpAddress=0:0:0:0:0:0:0:1, SessionId=B3536A7621C79E66727DEA0159E3D169], Granted Authorities=[ROLE_ADMIN, ROLE_AGENTE]]
+DEBUG o.s.security.web.FilterChainProxy        Secured GET /vistaRaiz.html?continue
+TRACE o.s.s.w.header.writers.HstsHeaderWriter  Not injecting HSTS header since it did not match request to [Is Secure]
+TRACE o.s.security.web.FilterChainProxy        Trying to match request against DefaultSecurityFilterChain [RequestMatcher=any request, Filters=[org.springframework.security.web.session.DisableEncodeUrlFilter@57c35657, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@299a8575, org.springframework.security.web.context.SecurityContextHolderFilter@7415bdb2, org.springframework.security.web.header.HeaderWriterFilter@2dad79cb, org.springframework.web.filter.CorsFilter@40df5ed0, org.springframework.security.web.csrf.CsrfFilter@8c15c11, org.springframework.security.web.authentication.logout.LogoutFilter@1c446a9e, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@63f70d54, org.springframework.security.web.authentication.ui.DefaultLoginPageGeneratingFilter@aaaa953, org.springframework.security.web.authentication.ui.DefaultLogoutPageGeneratingFilter@1149dbfe, org.springframework.security.web.authentication.www.BasicAuthenticationFilter@3712e76b, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@8773ff2, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@68e69bcb, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@5cf5466e, org.springframework.security.web.access.ExceptionTranslationFilter@1773eb55, org.springframework.security.web.access.intercept.AuthorizationFilter@42853a7f]] (1/1)
+DEBUG o.s.security.web.FilterChainProxy        Securing GET /css/estilo.css
+TRACE o.s.security.web.FilterChainProxy        Invoking DisableEncodeUrlFilter (1/16)
+TRACE o.s.security.web.FilterChainProxy        Invoking WebAsyncManagerIntegrationFilter (2/16)
+TRACE o.s.security.web.FilterChainProxy        Invoking SecurityContextHolderFilter (3/16)
+TRACE o.s.security.web.FilterChainProxy        Invoking HeaderWriterFilter (4/16)
+TRACE o.s.security.web.FilterChainProxy        Invoking CorsFilter (5/16)
+TRACE o.s.security.web.FilterChainProxy        Invoking CsrfFilter (6/16)
+TRACE o.s.security.web.csrf.CsrfFilter         Did not protect against CSRF since request did not match CsrfNotRequired [TRACE, HEAD, GET, OPTIONS]
+TRACE o.s.security.web.FilterChainProxy        Invoking LogoutFilter (7/16)
+TRACE o.s.s.w.a.logout.LogoutFilter            Did not match request to Ant [pattern='/logout', POST]
+TRACE o.s.security.web.FilterChainProxy        Invoking UsernamePasswordAuthenticationFilter (8/16)
+TRACE w.a.UsernamePasswordAuthenticationFilter Did not match request to Ant [pattern='/login', POST]
+TRACE o.s.security.web.FilterChainProxy        Invoking DefaultLoginPageGeneratingFilter (9/16)
+TRACE o.s.security.web.FilterChainProxy        Invoking DefaultLogoutPageGeneratingFilter (10/16)
+TRACE .w.a.u.DefaultLogoutPageGeneratingFilter Did not render default logout page since request did not match [Ant [pattern='/logout', GET]]
+TRACE o.s.security.web.FilterChainProxy        Invoking BasicAuthenticationFilter (11/16)
+TRACE o.s.s.w.a.www.BasicAuthenticationFilter  Did not process authentication request since failed to find username and password in Basic Authorization header
+TRACE o.s.security.web.FilterChainProxy        Invoking RequestCacheAwareFilter (12/16)
+TRACE o.s.s.w.s.HttpSessionRequestCache        matchingRequestParameterName is required for getMatchingRequest to lookup a value, but not provided
+TRACE o.s.security.web.FilterChainProxy        Invoking SecurityContextHolderAwareRequestFilter (13/16)
+TRACE o.s.security.web.FilterChainProxy        Invoking AnonymousAuthenticationFilter (14/16)
+TRACE o.s.security.web.FilterChainProxy        Invoking ExceptionTranslationFilter (15/16)
+TRACE o.s.security.web.FilterChainProxy        Invoking AuthorizationFilter (16/16)
+TRACE estMatcherDelegatingAuthorizationManager Authorizing GET /css/estilo.css
+TRACE estMatcherDelegatingAuthorizationManager Checking authorization on GET /css/estilo.css using org.springframework.security.config.annotation.web.configurers.AuthorizeHttpRequestsConfigurer$$Lambda$1524/0x0000000800aa2710@540c28b8
+DEBUG o.s.security.web.FilterChainProxy        Secured GET /css/estilo.css
+TRACE o.s.s.w.header.writers.HstsHeaderWriter  Not injecting HSTS header since it did not match request to [Is Secure]
+TRACE w.c.HttpSessionSecurityContextRepository Retrieved SecurityContextImpl [Authentication=UsernamePasswordAuthenticationToken [Principal=mx.com.qtx.ejmSpSec.seguridad.servicios.QtxUserDetails@177524d6, Credentials=[PROTECTED], Authenticated=true, Details=WebAuthenticationDetails [RemoteIpAddress=0:0:0:0:0:0:0:1, SessionId=B3536A7621C79E66727DEA0159E3D169], Granted Authorities=[ROLE_ADMIN, ROLE_AGENTE]]] from SPRING_SECURITY_CONTEXT
+TRACE o.s.s.w.a.AnonymousAuthenticationFilter  Did not set SecurityContextHolder since already authenticated UsernamePasswordAuthenticationToken [Principal=mx.com.qtx.ejmSpSec.seguridad.servicios.QtxUserDetails@177524d6, Credentials=[PROTECTED], Authenticated=true, Details=WebAuthenticationDetails [RemoteIpAddress=0:0:0:0:0:0:0:1, SessionId=B3536A7621C79E66727DEA0159E3D169], Granted Authorities=[ROLE_ADMIN, ROLE_AGENTE]]
+TRACE o.s.security.web.FilterChainProxy        Trying to match request against DefaultSecurityFilterChain [RequestMatcher=any request, Filters=[org.springframework.security.web.session.DisableEncodeUrlFilter@57c35657, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@299a8575, org.springframework.security.web.context.SecurityContextHolderFilter@7415bdb2, org.springframework.security.web.header.HeaderWriterFilter@2dad79cb, org.springframework.web.filter.CorsFilter@40df5ed0, org.springframework.security.web.csrf.CsrfFilter@8c15c11, org.springframework.security.web.authentication.logout.LogoutFilter@1c446a9e, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@63f70d54, org.springframework.security.web.authentication.ui.DefaultLoginPageGeneratingFilter@aaaa953, org.springframework.security.web.authentication.ui.DefaultLogoutPageGeneratingFilter@1149dbfe, org.springframework.security.web.authentication.www.BasicAuthenticationFilter@3712e76b, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@8773ff2, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@68e69bcb, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@5cf5466e, org.springframework.security.web.access.ExceptionTranslationFilter@1773eb55, org.springframework.security.web.access.intercept.AuthorizationFilter@42853a7f]] (1/1)
+DEBUG o.s.security.web.FilterChainProxy        Securing GET /logout
+TRACE o.s.security.web.FilterChainProxy        Invoking DisableEncodeUrlFilter (1/16)
+TRACE o.s.security.web.FilterChainProxy        Invoking WebAsyncManagerIntegrationFilter (2/16)
+TRACE o.s.security.web.FilterChainProxy        Invoking SecurityContextHolderFilter (3/16)
+TRACE o.s.security.web.FilterChainProxy        Invoking HeaderWriterFilter (4/16)
+TRACE o.s.security.web.FilterChainProxy        Invoking CorsFilter (5/16)
+TRACE o.s.security.web.FilterChainProxy        Invoking CsrfFilter (6/16)
+TRACE o.s.security.web.csrf.CsrfFilter         Did not protect against CSRF since request did not match CsrfNotRequired [TRACE, HEAD, GET, OPTIONS]
+TRACE o.s.security.web.FilterChainProxy        Invoking LogoutFilter (7/16)
+TRACE o.s.s.w.a.logout.LogoutFilter            Did not match request to Ant [pattern='/logout', POST]
+TRACE o.s.security.web.FilterChainProxy        Invoking UsernamePasswordAuthenticationFilter (8/16)
+TRACE w.a.UsernamePasswordAuthenticationFilter Did not match request to Ant [pattern='/login', POST]
+TRACE o.s.security.web.FilterChainProxy        Invoking DefaultLoginPageGeneratingFilter (9/16)
+TRACE o.s.security.web.FilterChainProxy        Invoking DefaultLogoutPageGeneratingFilter (10/16)
+TRACE o.s.s.w.header.writers.HstsHeaderWriter  Not injecting HSTS header since it did not match request to [Is Secure]
+TRACE o.s.security.web.FilterChainProxy        Trying to match request against DefaultSecurityFilterChain [RequestMatcher=any request, Filters=[org.springframework.security.web.session.DisableEncodeUrlFilter@57c35657, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@299a8575, org.springframework.security.web.context.SecurityContextHolderFilter@7415bdb2, org.springframework.security.web.header.HeaderWriterFilter@2dad79cb, org.springframework.web.filter.CorsFilter@40df5ed0, org.springframework.security.web.csrf.CsrfFilter@8c15c11, org.springframework.security.web.authentication.logout.LogoutFilter@1c446a9e, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@63f70d54, org.springframework.security.web.authentication.ui.DefaultLoginPageGeneratingFilter@aaaa953, org.springframework.security.web.authentication.ui.DefaultLogoutPageGeneratingFilter@1149dbfe, org.springframework.security.web.authentication.www.BasicAuthenticationFilter@3712e76b, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@8773ff2, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@68e69bcb, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@5cf5466e, org.springframework.security.web.access.ExceptionTranslationFilter@1773eb55, org.springframework.security.web.access.intercept.AuthorizationFilter@42853a7f]] (1/1)
+DEBUG o.s.security.web.FilterChainProxy        Securing POST /logout
+TRACE o.s.security.web.FilterChainProxy        Invoking DisableEncodeUrlFilter (1/16)
+TRACE o.s.security.web.FilterChainProxy        Invoking WebAsyncManagerIntegrationFilter (2/16)
+TRACE o.s.security.web.FilterChainProxy        Invoking SecurityContextHolderFilter (3/16)
+TRACE o.s.security.web.FilterChainProxy        Invoking HeaderWriterFilter (4/16)
+TRACE o.s.security.web.FilterChainProxy        Invoking CorsFilter (5/16)
+TRACE o.s.security.web.FilterChainProxy        Invoking CsrfFilter (6/16)
+TRACE o.s.security.web.FilterChainProxy        Invoking LogoutFilter (7/16)
+TRACE w.c.HttpSessionSecurityContextRepository Retrieved SecurityContextImpl [Authentication=UsernamePasswordAuthenticationToken [Principal=mx.com.qtx.ejmSpSec.seguridad.servicios.QtxUserDetails@177524d6, Credentials=[PROTECTED], Authenticated=true, Details=WebAuthenticationDetails [RemoteIpAddress=0:0:0:0:0:0:0:1, SessionId=B3536A7621C79E66727DEA0159E3D169], Granted Authorities=[ROLE_ADMIN, ROLE_AGENTE]]] from SPRING_SECURITY_CONTEXT
+DEBUG o.s.s.w.a.logout.LogoutFilter            Logging out [UsernamePasswordAuthenticationToken [Principal=mx.com.qtx.ejmSpSec.seguridad.servicios.QtxUserDetails@177524d6, Credentials=[PROTECTED], Authenticated=true, Details=WebAuthenticationDetails [RemoteIpAddress=0:0:0:0:0:0:0:1, SessionId=B3536A7621C79E66727DEA0159E3D169], Granted Authorities=[ROLE_ADMIN, ROLE_AGENTE]]]
+DEBUG o.s.s.w.a.l.SecurityContextLogoutHandler Invalidated session 115B8103954E56EE379DE7540EBEE9AA
+DEBUG o.s.s.web.DefaultRedirectStrategy        Redirecting to /appQtx/login?logout
+TRACE o.s.s.w.header.writers.HstsHeaderWriter  Not injecting HSTS header since it did not match request to [Is Secure]
+TRACE o.s.security.web.FilterChainProxy        Trying to match request against DefaultSecurityFilterChain [RequestMatcher=any request, Filters=[org.springframework.security.web.session.DisableEncodeUrlFilter@57c35657, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@299a8575, org.springframework.security.web.context.SecurityContextHolderFilter@7415bdb2, org.springframework.security.web.header.HeaderWriterFilter@2dad79cb, org.springframework.web.filter.CorsFilter@40df5ed0, org.springframework.security.web.csrf.CsrfFilter@8c15c11, org.springframework.security.web.authentication.logout.LogoutFilter@1c446a9e, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@63f70d54, org.springframework.security.web.authentication.ui.DefaultLoginPageGeneratingFilter@aaaa953, org.springframework.security.web.authentication.ui.DefaultLogoutPageGeneratingFilter@1149dbfe, org.springframework.security.web.authentication.www.BasicAuthenticationFilter@3712e76b, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@8773ff2, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@68e69bcb, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@5cf5466e, org.springframework.security.web.access.ExceptionTranslationFilter@1773eb55, org.springframework.security.web.access.intercept.AuthorizationFilter@42853a7f]] (1/1)
+DEBUG o.s.security.web.FilterChainProxy        Securing GET /login?logout
+TRACE o.s.security.web.FilterChainProxy        Invoking DisableEncodeUrlFilter (1/16)
+TRACE o.s.security.web.FilterChainProxy        Invoking WebAsyncManagerIntegrationFilter (2/16)
+TRACE o.s.security.web.FilterChainProxy        Invoking SecurityContextHolderFilter (3/16)
+TRACE o.s.security.web.FilterChainProxy        Invoking HeaderWriterFilter (4/16)
+TRACE o.s.security.web.FilterChainProxy        Invoking CorsFilter (5/16)
+TRACE o.s.security.web.FilterChainProxy        Invoking CsrfFilter (6/16)
+TRACE o.s.security.web.csrf.CsrfFilter         Did not protect against CSRF since request did not match CsrfNotRequired [TRACE, HEAD, GET, OPTIONS]
+TRACE o.s.security.web.FilterChainProxy        Invoking LogoutFilter (7/16)
+TRACE o.s.s.w.a.logout.LogoutFilter            Did not match request to Ant [pattern='/logout', POST]
+TRACE o.s.security.web.FilterChainProxy        Invoking UsernamePasswordAuthenticationFilter (8/16)
+TRACE w.a.UsernamePasswordAuthenticationFilter Did not match request to Ant [pattern='/login', POST]
+TRACE o.s.security.web.FilterChainProxy        Invoking DefaultLoginPageGeneratingFilter (9/16)
+TRACE o.s.s.w.header.writers.HstsHeaderWriter  Not injecting HSTS header since it did not match request to [Is Secure]
+TRACE o.s.security.web.FilterChainProxy        Trying to match request against DefaultSecurityFilterChain [RequestMatcher=any request, Filters=[org.springframework.security.web.session.DisableEncodeUrlFilter@57c35657, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@299a8575, org.springframework.security.web.context.SecurityContextHolderFilter@7415bdb2, org.springframework.security.web.header.HeaderWriterFilter@2dad79cb, org.springframework.web.filter.CorsFilter@40df5ed0, org.springframework.security.web.csrf.CsrfFilter@8c15c11, org.springframework.security.web.authentication.logout.LogoutFilter@1c446a9e, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@63f70d54, org.springframework.security.web.authentication.ui.DefaultLoginPageGeneratingFilter@aaaa953, org.springframework.security.web.authentication.ui.DefaultLogoutPageGeneratingFilter@1149dbfe, org.springframework.security.web.authentication.www.BasicAuthenticationFilter@3712e76b, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@8773ff2, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@68e69bcb, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@5cf5466e, org.springframework.security.web.access.ExceptionTranslationFilter@1773eb55, org.springframework.security.web.access.intercept.AuthorizationFilter@42853a7f]] (1/1)
+DEBUG o.s.security.web.FilterChainProxy        Securing GET /info
+TRACE o.s.security.web.FilterChainProxy        Invoking DisableEncodeUrlFilter (1/16)
+TRACE o.s.security.web.FilterChainProxy        Invoking WebAsyncManagerIntegrationFilter (2/16)
+TRACE o.s.security.web.FilterChainProxy        Invoking SecurityContextHolderFilter (3/16)
+TRACE o.s.security.web.FilterChainProxy        Invoking HeaderWriterFilter (4/16)
+TRACE o.s.security.web.FilterChainProxy        Invoking CorsFilter (5/16)
+TRACE o.s.security.web.FilterChainProxy        Invoking CsrfFilter (6/16)
+TRACE o.s.security.web.csrf.CsrfFilter         Did not protect against CSRF since request did not match CsrfNotRequired [TRACE, HEAD, GET, OPTIONS]
+TRACE o.s.security.web.FilterChainProxy        Invoking LogoutFilter (7/16)
+TRACE o.s.s.w.a.logout.LogoutFilter            Did not match request to Ant [pattern='/logout', POST]
+TRACE o.s.security.web.FilterChainProxy        Invoking UsernamePasswordAuthenticationFilter (8/16)
+TRACE w.a.UsernamePasswordAuthenticationFilter Did not match request to Ant [pattern='/login', POST]
+TRACE o.s.security.web.FilterChainProxy        Invoking DefaultLoginPageGeneratingFilter (9/16)
+TRACE o.s.security.web.FilterChainProxy        Invoking DefaultLogoutPageGeneratingFilter (10/16)
+TRACE .w.a.u.DefaultLogoutPageGeneratingFilter Did not render default logout page since request did not match [Ant [pattern='/logout', GET]]
+TRACE o.s.security.web.FilterChainProxy        Invoking BasicAuthenticationFilter (11/16)
+TRACE o.s.s.w.a.www.BasicAuthenticationFilter  Did not process authentication request since failed to find username and password in Basic Authorization header
+TRACE o.s.security.web.FilterChainProxy        Invoking RequestCacheAwareFilter (12/16)
+TRACE o.s.s.w.s.HttpSessionRequestCache        matchingRequestParameterName is required for getMatchingRequest to lookup a value, but not provided
+TRACE o.s.security.web.FilterChainProxy        Invoking SecurityContextHolderAwareRequestFilter (13/16)
+TRACE o.s.security.web.FilterChainProxy        Invoking AnonymousAuthenticationFilter (14/16)
+TRACE o.s.security.web.FilterChainProxy        Invoking ExceptionTranslationFilter (15/16)
+TRACE o.s.security.web.FilterChainProxy        Invoking AuthorizationFilter (16/16)
+TRACE estMatcherDelegatingAuthorizationManager Authorizing GET /info
+TRACE estMatcherDelegatingAuthorizationManager Checking authorization on GET /info using org.springframework.security.config.annotation.web.configurers.AuthorizeHttpRequestsConfigurer$$Lambda$1524/0x0000000800aa2710@540c28b8
+DEBUG o.s.security.web.FilterChainProxy        Secured GET /info
+TRACE o.s.security.web.FilterChainProxy        Trying to match request against DefaultSecurityFilterChain [RequestMatcher=any request, Filters=[org.springframework.security.web.session.DisableEncodeUrlFilter@57c35657, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@299a8575, org.springframework.security.web.context.SecurityContextHolderFilter@7415bdb2, org.springframework.security.web.header.HeaderWriterFilter@2dad79cb, org.springframework.web.filter.CorsFilter@40df5ed0, org.springframework.security.web.csrf.CsrfFilter@8c15c11, org.springframework.security.web.authentication.logout.LogoutFilter@1c446a9e, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@63f70d54, org.springframework.security.web.authentication.ui.DefaultLoginPageGeneratingFilter@aaaa953, org.springframework.security.web.authentication.ui.DefaultLogoutPageGeneratingFilter@1149dbfe, org.springframework.security.web.authentication.www.BasicAuthenticationFilter@3712e76b, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@8773ff2, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@68e69bcb, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@5cf5466e, org.springframework.security.web.access.ExceptionTranslationFilter@1773eb55, org.springframework.security.web.access.intercept.AuthorizationFilter@42853a7f]] (1/1)
+DEBUG o.s.security.web.FilterChainProxy        Securing GET /vistaInfo.html
+TRACE o.s.security.web.FilterChainProxy        Invoking DisableEncodeUrlFilter (1/16)
+TRACE o.s.security.web.FilterChainProxy        Invoking WebAsyncManagerIntegrationFilter (2/16)
+TRACE o.s.security.web.FilterChainProxy        Invoking SecurityContextHolderFilter (3/16)
+TRACE o.s.security.web.FilterChainProxy        Invoking HeaderWriterFilter (4/16)
+TRACE o.s.security.web.FilterChainProxy        Invoking CorsFilter (5/16)
+TRACE o.s.security.web.FilterChainProxy        Invoking CsrfFilter (6/16)
+TRACE o.s.security.web.FilterChainProxy        Invoking LogoutFilter (7/16)
+TRACE o.s.s.w.a.logout.LogoutFilter            Did not match request to Ant [pattern='/logout', POST]
+TRACE o.s.security.web.FilterChainProxy        Invoking UsernamePasswordAuthenticationFilter (8/16)
+TRACE w.a.UsernamePasswordAuthenticationFilter Did not match request to Ant [pattern='/login', POST]
+TRACE o.s.security.web.FilterChainProxy        Invoking DefaultLoginPageGeneratingFilter (9/16)
+TRACE o.s.security.web.FilterChainProxy        Invoking DefaultLogoutPageGeneratingFilter (10/16)
+TRACE o.s.security.web.FilterChainProxy        Invoking BasicAuthenticationFilter (11/16)
+TRACE o.s.security.web.FilterChainProxy        Invoking RequestCacheAwareFilter (12/16)
+TRACE o.s.s.w.s.HttpSessionRequestCache        matchingRequestParameterName is required for getMatchingRequest to lookup a value, but not provided
+TRACE o.s.security.web.FilterChainProxy        Invoking SecurityContextHolderAwareRequestFilter (13/16)
+TRACE o.s.security.web.FilterChainProxy        Invoking AnonymousAuthenticationFilter (14/16)
+TRACE o.s.security.web.FilterChainProxy        Invoking ExceptionTranslationFilter (15/16)
+TRACE o.s.security.web.FilterChainProxy        Invoking AuthorizationFilter (16/16)
+TRACE estMatcherDelegatingAuthorizationManager Authorizing GET /vistaInfo.html
+TRACE estMatcherDelegatingAuthorizationManager Checking authorization on GET /vistaInfo.html using org.springframework.security.config.annotation.web.configurers.AuthorizeHttpRequestsConfigurer$$Lambda$1524/0x0000000800aa2710@540c28b8
+DEBUG o.s.security.web.FilterChainProxy        Secured GET /vistaInfo.html
+TRACE o.s.s.w.header.writers.HstsHeaderWriter  Not injecting HSTS header since it did not match request to [Is Secure]
+TRACE w.c.HttpSessionSecurityContextRepository Did not find SecurityContext in HttpSession 06ACA7EBE3969F7D40114DE7ECCD93ED using the SPRING_SECURITY_CONTEXT session attribute
+TRACE .s.s.w.c.SupplierDeferredSecurityContext Created SecurityContextImpl [Null authentication]
+TRACE .s.s.w.c.SupplierDeferredSecurityContext Created SecurityContextImpl [Null authentication]
+TRACE o.s.s.w.a.AnonymousAuthenticationFilter  Set SecurityContextHolder to AnonymousAuthenticationToken [Principal=anonymousUser, Credentials=[PROTECTED], Authenticated=true, Details=WebAuthenticationDetails [RemoteIpAddress=0:0:0:0:0:0:0:1, SessionId=06ACA7EBE3969F7D40114DE7ECCD93ED], Granted Authorities=[ROLE_ANONYMOUS]]
+TRACE o.s.s.w.a.AnonymousAuthenticationFilter  Did not set SecurityContextHolder since already authenticated AnonymousAuthenticationToken [Principal=anonymousUser, Credentials=[PROTECTED], Authenticated=true, Details=WebAuthenticationDetails [RemoteIpAddress=0:0:0:0:0:0:0:1, SessionId=06ACA7EBE3969F7D40114DE7ECCD93ED], Granted Authorities=[ROLE_ANONYMOUS]]
+TRACE o.s.security.web.FilterChainProxy        Trying to match request against DefaultSecurityFilterChain [RequestMatcher=any request, Filters=[org.springframework.security.web.session.DisableEncodeUrlFilter@57c35657, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@299a8575, org.springframework.security.web.context.SecurityContextHolderFilter@7415bdb2, org.springframework.security.web.header.HeaderWriterFilter@2dad79cb, org.springframework.web.filter.CorsFilter@40df5ed0, org.springframework.security.web.csrf.CsrfFilter@8c15c11, org.springframework.security.web.authentication.logout.LogoutFilter@1c446a9e, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@63f70d54, org.springframework.security.web.authentication.ui.DefaultLoginPageGeneratingFilter@aaaa953, org.springframework.security.web.authentication.ui.DefaultLogoutPageGeneratingFilter@1149dbfe, org.springframework.security.web.authentication.www.BasicAuthenticationFilter@3712e76b, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@8773ff2, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@68e69bcb, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@5cf5466e, org.springframework.security.web.access.ExceptionTranslationFilter@1773eb55, org.springframework.security.web.access.intercept.AuthorizationFilter@42853a7f]] (1/1)
+DEBUG o.s.security.web.FilterChainProxy        Securing GET /css/estilo.css
+TRACE o.s.security.web.FilterChainProxy        Invoking DisableEncodeUrlFilter (1/16)
+TRACE o.s.security.web.FilterChainProxy        Invoking WebAsyncManagerIntegrationFilter (2/16)
+TRACE o.s.security.web.FilterChainProxy        Invoking SecurityContextHolderFilter (3/16)
+TRACE o.s.security.web.FilterChainProxy        Invoking HeaderWriterFilter (4/16)
+TRACE o.s.security.web.FilterChainProxy        Invoking CorsFilter (5/16)
+TRACE o.s.security.web.FilterChainProxy        Invoking CsrfFilter (6/16)
+TRACE o.s.security.web.csrf.CsrfFilter         Did not protect against CSRF since request did not match CsrfNotRequired [TRACE, HEAD, GET, OPTIONS]
+TRACE o.s.security.web.FilterChainProxy        Invoking LogoutFilter (7/16)
+TRACE o.s.s.w.a.logout.LogoutFilter            Did not match request to Ant [pattern='/logout', POST]
+TRACE o.s.security.web.FilterChainProxy        Invoking UsernamePasswordAuthenticationFilter (8/16)
+TRACE w.a.UsernamePasswordAuthenticationFilter Did not match request to Ant [pattern='/login', POST]
+TRACE o.s.security.web.FilterChainProxy        Invoking DefaultLoginPageGeneratingFilter (9/16)
+TRACE o.s.security.web.FilterChainProxy        Invoking DefaultLogoutPageGeneratingFilter (10/16)
+TRACE .w.a.u.DefaultLogoutPageGeneratingFilter Did not render default logout page since request did not match [Ant [pattern='/logout', GET]]
+TRACE o.s.security.web.FilterChainProxy        Invoking BasicAuthenticationFilter (11/16)
+TRACE o.s.s.w.a.www.BasicAuthenticationFilter  Did not process authentication request since failed to find username and password in Basic Authorization header
+TRACE o.s.security.web.FilterChainProxy        Invoking RequestCacheAwareFilter (12/16)
+TRACE o.s.s.w.s.HttpSessionRequestCache        matchingRequestParameterName is required for getMatchingRequest to lookup a value, but not provided
+TRACE o.s.security.web.FilterChainProxy        Invoking SecurityContextHolderAwareRequestFilter (13/16)
+TRACE o.s.security.web.FilterChainProxy        Invoking AnonymousAuthenticationFilter (14/16)
+TRACE o.s.security.web.FilterChainProxy        Invoking ExceptionTranslationFilter (15/16)
+TRACE o.s.security.web.FilterChainProxy        Invoking AuthorizationFilter (16/16)
+TRACE estMatcherDelegatingAuthorizationManager Authorizing GET /css/estilo.css
+TRACE estMatcherDelegatingAuthorizationManager Checking authorization on GET /css/estilo.css using org.springframework.security.config.annotation.web.configurers.AuthorizeHttpRequestsConfigurer$$Lambda$1524/0x0000000800aa2710@540c28b8
+DEBUG o.s.security.web.FilterChainProxy        Secured GET /css/estilo.css
+TRACE o.s.s.w.header.writers.HstsHeaderWriter  Not injecting HSTS header since it did not match request to [Is Secure]
+TRACE w.c.HttpSessionSecurityContextRepository Did not find SecurityContext in HttpSession 06ACA7EBE3969F7D40114DE7ECCD93ED using the SPRING_SECURITY_CONTEXT session attribute
+TRACE .s.s.w.c.SupplierDeferredSecurityContext Created SecurityContextImpl [Null authentication]
+TRACE .s.s.w.c.SupplierDeferredSecurityContext Created SecurityContextImpl [Null authentication]
+TRACE o.s.s.w.a.AnonymousAuthenticationFilter  Set SecurityContextHolder to AnonymousAuthenticationToken [Principal=anonymousUser, Credentials=[PROTECTED], Authenticated=true, Details=WebAuthenticationDetails [RemoteIpAddress=0:0:0:0:0:0:0:1, SessionId=06ACA7EBE3969F7D40114DE7ECCD93ED], Granted Authorities=[ROLE_ANONYMOUS]]
