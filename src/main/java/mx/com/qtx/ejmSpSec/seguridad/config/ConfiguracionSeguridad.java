@@ -40,6 +40,7 @@ public class ConfiguracionSeguridad {
 		http
 			.authorizeHttpRequests((authorize) ->  authorize
 			     .requestMatchers("/css/*").permitAll()
+			     .requestMatchers("/api/autenticacion").permitAll()
 				 .requestMatchers("/info","/vistaInfo.html").permitAll()
 			     .requestMatchers("/api/**").hasRole("AGENTE")
 			     .requestMatchers("/admin/**").hasRole("ADMIN")

@@ -10,7 +10,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 @Configuration
-public class DataSourceSeguridadDefaultSchema {
+public class DataSourceSeguridad {
 	private static final String NOMBRE_BD_ESQ_DEFAULT = "ejmBDSeguridad";
 	private static final String CMD_INIC_BD_ESQ_DEFAULT = "createDatabaseIfNotExist=true";
 	private static final String URL_BD_ESQ_DEFAULT = "jdbc:mysql://localhost:3306/" 
@@ -29,9 +29,9 @@ public class DataSourceSeguridadDefaultSchema {
 	private static final String USER_BD_ESQ_PERSONALIZADO = "root"; 
 	private static final String PASSWD_BD_ESQ_PERSONALIZADO = "root"; 
 	
-	private static Logger bitacora = LoggerFactory.getLogger(DataSourceSeguridadDefaultSchema.class);
+	private static Logger bitacora = LoggerFactory.getLogger(DataSourceSeguridad.class);
 		
-	public DataSourceSeguridadDefaultSchema() {
+	public DataSourceSeguridad() {
 	}
 	
 //	@ConfigurationProperties(prefix = "qtx.datasource.sec")

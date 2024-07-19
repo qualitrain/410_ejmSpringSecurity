@@ -13,3 +13,19 @@ a) Para la Aplicación
 b) Para Seguridad
 
 Requiere MySql 8+ (Con la versión 5 se tendrá un error de ejecución por el uso de JPA y conflicto con el dialecto SQL)
+
+Para probar Endpoint de Autenticacion (postman o similar): -----------------
+
+   POST http://localhost:8068/appQtx/api/autenticacion
+    Content-Type:application/json
+    Accept:application/json
+
+    Body (raw):
+      {
+         "nombreUsuario":"alex",
+         "password":"tekamachalko"
+      }
+      
+Precondiciones: Que exista este usuario en la BD
+
+----------------------------------------------------------------------------
