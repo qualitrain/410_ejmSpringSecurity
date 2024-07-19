@@ -2,9 +2,14 @@ package mx.com.qtx.ejmSpSec.seguridad.config;
 
 import javax.sql.DataSource;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.security.authentication.AuthenticationManager;
+import org.springframework.security.authentication.ProviderManager;
+import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
 import org.springframework.security.config.Customizer;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
@@ -12,6 +17,8 @@ import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.jdbc.JdbcDaoImpl;
+import org.springframework.security.crypto.factory.PasswordEncoderFactories;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.provisioning.InMemoryUserDetailsManager;
 import org.springframework.security.provisioning.JdbcUserDetailsManager;
 import org.springframework.security.provisioning.UserDetailsManager;
@@ -23,8 +30,11 @@ import mx.com.qtx.ejmSpSec.seguridad.servicios.ServicioUserDetailQtx;
 @Configuration
 @EnableWebSecurity
 public class ConfiguracionSeguridad {
+	
+	private static Logger bitacora = LoggerFactory.getLogger(ConfiguracionSeguridad.class);
+	
 	@Bean
-	public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
+	SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
 		http
 			.authorizeHttpRequests((authorize) ->  authorize
 			     .requestMatchers("/css/*").permitAll()
@@ -34,6 +44,7 @@ public class ConfiguracionSeguridad {
 			     .requestMatchers("/logistica/**").hasAnyRole("LOGISTICA","ADMIN")
 			     .requestMatchers("/**").authenticated()
 			)
+			.csrf(config -> config.ignoringRequestMatchers("/api/**"))
 			.httpBasic(Customizer.withDefaults())
 			.formLogin(Customizer.withDefaults());
 
@@ -114,8 +125,31 @@ public class ConfiguracionSeguridad {
 		return gestorBdUsuariosPersonalizada;
     }
 
-   @Bean
-   UserDetailsService getGestorBdUsuariosPersonalizadaQtx() {
+    @Bean
+    UserDetailsService getGestorBdUsuariosPersonalizadaQtx() {
     	return new ServicioUserDetailQtx();
     }
+    
+    @Bean
+    PasswordEncoder publicarPasswordEncoder() {
+    	return PasswordEncoderFactories.createDelegatingPasswordEncoder();
+    }
+   
+	@Bean
+	AuthenticationManager publicarAuthenticationManager(
+			UserDetailsService userDetailsService,
+			PasswordEncoder passwordEncoder) {
+		bitacora.trace("publicarAuthenticationManager("
+				+ userDetailsService.getClass().getSimpleName() + ", "
+				+ passwordEncoder.getClass().getSimpleName()
+				+ ")");
+		DaoAuthenticationProvider authenticationProvider = new DaoAuthenticationProvider();
+		authenticationProvider.setUserDetailsService(userDetailsService);
+		authenticationProvider.setPasswordEncoder(passwordEncoder);
+
+		AuthenticationManager authenticationManager = new ProviderManager(authenticationProvider);
+		bitacora.info("AuthenticationManager instanciado y publicado");
+		return authenticationManager;
+	}
+
 }
