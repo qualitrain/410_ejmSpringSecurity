@@ -24,7 +24,9 @@ import org.springframework.security.provisioning.JdbcUserDetailsManager;
 import org.springframework.security.provisioning.UserDetailsManager;
 import org.springframework.security.web.SecurityFilterChain;
 
+import mx.com.qtx.ejmSpSec.seguridad.servicios.IGeneradorTokensJWT;
 import mx.com.qtx.ejmSpSec.seguridad.servicios.ServicioUserDetailQtx;
+import mx.com.qtx.ejmSpSec.seguridad.util.GeneradorTokensJWT_JJWT0_12_6_SHA512;
 
 
 @Configuration
@@ -148,8 +150,18 @@ public class ConfiguracionSeguridad {
 		authenticationProvider.setPasswordEncoder(passwordEncoder);
 
 		AuthenticationManager authenticationManager = new ProviderManager(authenticationProvider);
-		bitacora.info("AuthenticationManager instanciado y publicado");
+		bitacora.info("AuthenticationManager instanciado y publicado: [" 
+		              + authenticationManager.getClass().getSimpleName() + "]");
 		return authenticationManager;
+	}
+	
+	@Bean
+	IGeneradorTokensJWT publicarGeneradorTokensJWT() {
+		bitacora.trace("publicarGeneradorTokensJWT()");
+		IGeneradorTokensJWT generadorTokens = new GeneradorTokensJWT_JJWT0_12_6_SHA512();
+		bitacora.info("IGeneradorTokensJWT instanciado y publicado: ["
+				      + generadorTokens.getClass().getSimpleName() + "]");
+		return generadorTokens;
 	}
 
 }
