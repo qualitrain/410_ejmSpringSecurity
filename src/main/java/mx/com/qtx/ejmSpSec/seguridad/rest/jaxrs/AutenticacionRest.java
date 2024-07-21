@@ -35,6 +35,12 @@ public class AutenticacionRest {
 		this.servAutenticacion = servAutenticacion;
 	}
 	
+	/**
+	 * Atender solicitud de Autenticacion: Post /autenticacion
+	 * @param aut
+	 * objeto que deserializa objeto JSon
+	 * @return TokenJWT a usar en peticiones subsecuentes
+	 */
 	@POST
 	@Produces(MediaType.APPLICATION_JSON)
 	@Consumes(MediaType.APPLICATION_JSON)
