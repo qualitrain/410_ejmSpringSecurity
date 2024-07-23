@@ -7,12 +7,14 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.core.annotation.Order;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.ProviderManager;
 import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
 import org.springframework.security.config.Customizer;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
+import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -23,11 +25,19 @@ import org.springframework.security.provisioning.InMemoryUserDetailsManager;
 import org.springframework.security.provisioning.JdbcUserDetailsManager;
 import org.springframework.security.provisioning.UserDetailsManager;
 import org.springframework.security.web.SecurityFilterChain;
+import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
+import org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter;
+import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
+import org.springframework.security.web.util.matcher.NegatedRequestMatcher;
+import org.springframework.security.web.util.matcher.OrRequestMatcher;
+import org.springframework.security.web.util.matcher.RequestMatcher;
 
+import mx.com.qtx.ejmSpSec.seguridad.rest.FiltroTokensJwt_SS;
+import mx.com.qtx.ejmSpSec.seguridad.rest.IExtractorTokenJwtPeticionHttp;
 import mx.com.qtx.ejmSpSec.seguridad.servicios.IGeneradorTokensJWT;
 import mx.com.qtx.ejmSpSec.seguridad.servicios.ServicioUserDetailQtx;
+import mx.com.qtx.ejmSpSec.seguridad.util.FiltroMonitoreo;
 import mx.com.qtx.ejmSpSec.seguridad.util.GeneradorTokensJWT_JJWT0_12_6_SHA512;
-
 
 @Configuration
 @EnableWebSecurity
@@ -36,24 +46,61 @@ public class ConfiguracionSeguridad {
 	private static Logger bitacora = LoggerFactory.getLogger(ConfiguracionSeguridad.class);
 	
 	@Bean
-	SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
-		http
+	@Order(1)	
+	SecurityFilterChain getSecurityFilterChainApiWeb(HttpSecurity http, FiltroTokensJwt_SS filtroJWT,
+			            @Qualifier("filtroMonitoreo01") FiltroMonitoreo filtroMonitoreo) 
+			            		throws Exception {
+		filtroMonitoreo.setIdCadenaFiltrado("CadFiltrado API");
+		
+		http.securityMatchers(config -> config.requestMatchers("/api/**","/api/autenticacion"))
 			.authorizeHttpRequests((authorize) ->  authorize
-			     .requestMatchers("/css/*").permitAll()
 			     .requestMatchers("/api/autenticacion").permitAll()
-				 .requestMatchers("/info","/vistaInfo.html").permitAll()
 			     .requestMatchers("/api/**").hasRole("AGENTE")
-			     .requestMatchers("/admin/**").hasRole("ADMIN")
-			     .requestMatchers("/logistica/**").hasAnyRole("LOGISTICA","ADMIN")
-			     .requestMatchers("/**").authenticated()
 			)
-			.csrf(config -> config.ignoringRequestMatchers("/api/**"))
-			.httpBasic(Customizer.withDefaults())
-			.formLogin(Customizer.withDefaults());
+			.csrf(config -> config.disable())
+			.formLogin(config -> config.disable())
+			.logout(config -> config.disable())
+		  	.addFilterBefore(filtroJWT, UsernamePasswordAuthenticationFilter.class)
+		  	.addFilterBefore(filtroMonitoreo, WebAsyncManagerIntegrationFilter.class)
+		  	.sessionManagement(config -> config.sessionCreationPolicy(SessionCreationPolicy.STATELESS));
 
 		return http.build();
 	}
 
+	@Bean
+	@Order(2)	
+	SecurityFilterChain getSecurityFilterChainMvc(HttpSecurity http,
+            @Qualifier("filtroMonitoreo02") FiltroMonitoreo filtroMonitoreo) 
+		    throws Exception {
+		
+		RequestMatcher urisXatender = this.buildRequestMatcherTodosExcepto("/api/**", "/api/autenticacion");
+		
+		filtroMonitoreo.setIdCadenaFiltrado("CadFiltrado MVC");
+		http.securityMatcher(urisXatender)
+			.authorizeHttpRequests((authorize) ->  authorize
+			     .requestMatchers("/css/*","/login").permitAll()
+				 .requestMatchers("/info","/vistaInfo.html").permitAll()
+			     .requestMatchers("/admin/**").hasRole("ADMIN")
+			     .requestMatchers("/logistica/**").hasAnyRole("LOGISTICA","ADMIN")
+			     .requestMatchers("/**").authenticated()
+			)
+			.csrf(Customizer.withDefaults())
+			.httpBasic(Customizer.withDefaults())
+			.formLogin(Customizer.withDefaults())
+			.logout(config -> config.invalidateHttpSession(true))
+		  	.addFilterBefore(filtroMonitoreo, WebAsyncManagerIntegrationFilter.class)
+			.sessionManagement(config -> config.maximumSessions(1));
+
+		return http.build();
+	}
+
+	private RequestMatcher buildRequestMatcherTodosExcepto(String urlExcluida1, String urlExcluida2) {
+		OrRequestMatcher orRequestMatcher = new OrRequestMatcher(new AntPathRequestMatcher(urlExcluida1), 
+				                                                 new AntPathRequestMatcher(urlExcluida2)); 
+		RequestMatcher patronUrlsXatender = new NegatedRequestMatcher(orRequestMatcher);
+		return patronUrlsXatender;
+	}
+	
  // @Bean
     UserDetailsService userDetailsService() {
 		UserDetails userDetailsAlex = User.withDefaultPasswordEncoder()
@@ -164,5 +211,22 @@ public class ConfiguracionSeguridad {
 				      + generadorTokens.getClass().getSimpleName() + "]");
 		return generadorTokens;
 	}
+	
+	@Bean
+	FiltroTokensJwt_SS getFiltroRevisorTokenJWT(IExtractorTokenJwtPeticionHttp extractorTokens, UserDetailsService gestorUsuariosSS) {
+		FiltroTokensJwt_SS filtroRevisorTokenJWT = new FiltroTokensJwt_SS(extractorTokens,gestorUsuariosSS);
+		return filtroRevisorTokenJWT;
+	}
 
+	@Bean("filtroMonitoreo01")
+	FiltroMonitoreo getFiltroMonitoreoCad01() {
+		FiltroMonitoreo filtroMonitoreo = new FiltroMonitoreo();
+		return filtroMonitoreo;
+	}
+	
+	@Bean("filtroMonitoreo02")
+	FiltroMonitoreo getFiltroMonitoreoCad02() {
+		FiltroMonitoreo filtroMonitoreo = new FiltroMonitoreo();
+		return filtroMonitoreo;
+	}
 }

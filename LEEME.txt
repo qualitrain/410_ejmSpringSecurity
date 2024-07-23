@@ -16,7 +16,7 @@ Requiere MySql 8+ (Con la versión 5 se tendrá un error de ejecución por el us
 
 Para probar Endpoint de Autenticacion (postman o similar): -----------------
 
-   POST http://localhost:8068/appQtx/api/autenticacion
+1.   POST http://localhost:8068/appQtx/api/autenticacion
     Content-Type:application/json
     Accept:application/json
 
@@ -27,5 +27,10 @@ Para probar Endpoint de Autenticacion (postman o similar): -----------------
       }
       
 Precondiciones: Que exista este usuario en la BD
+Debe devolver un JSon con la llave codificada en base 64
 
 ----------------------------------------------------------------------------
+  
+2. GET http://localhost:8068/appQtx/api/catalogos/nombres
+Cabecera HTTP: 
+Authorization: Bearer <Llave> devuelta en paso 1 (La llave debe escribirse SIN las comillas exteriores
