@@ -1,4 +1,4 @@
-package mx.com.qtx.ejmSpSec.seguridad.rest.jaxrs;
+package mx.com.qtx.ejmSpSec.seguridad.web.jaxrs;
 
 import jakarta.ws.rs.WebApplicationException;
 import jakarta.ws.rs.core.Response;

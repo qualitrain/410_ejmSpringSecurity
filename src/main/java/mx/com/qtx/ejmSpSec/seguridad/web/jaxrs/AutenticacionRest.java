@@ -1,4 +1,4 @@
-package mx.com.qtx.ejmSpSec.seguridad.rest.jaxrs;
+package mx.com.qtx.ejmSpSec.seguridad.web.jaxrs;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -12,8 +12,8 @@ import jakarta.ws.rs.core.MediaType;
 import jakarta.ws.rs.core.Response;
 import mx.com.qtx.ejmSpSec.seguridad.entidades.Autenticacion;
 import mx.com.qtx.ejmSpSec.seguridad.entidades.TokenJWT;
-import mx.com.qtx.ejmSpSec.seguridad.rest.IResultadoOperacion;
-import mx.com.qtx.ejmSpSec.seguridad.rest.IServicioAutenticacionJWT;
+import mx.com.qtx.ejmSpSec.seguridad.web.IResultadoOperacion;
+import mx.com.qtx.ejmSpSec.seguridad.web.IServicioAutenticacionJWT;
 
 @Path("autenticacion")
 public class AutenticacionRest {

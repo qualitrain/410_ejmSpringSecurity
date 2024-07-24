@@ -32,12 +32,12 @@ import org.springframework.security.web.util.matcher.NegatedRequestMatcher;
 import org.springframework.security.web.util.matcher.OrRequestMatcher;
 import org.springframework.security.web.util.matcher.RequestMatcher;
 
-import mx.com.qtx.ejmSpSec.seguridad.rest.FiltroTokensJwt_SS;
-import mx.com.qtx.ejmSpSec.seguridad.rest.IExtractorTokenJwtPeticionHttp;
 import mx.com.qtx.ejmSpSec.seguridad.servicios.IGeneradorTokensJWT;
 import mx.com.qtx.ejmSpSec.seguridad.servicios.ServicioUserDetailQtx;
 import mx.com.qtx.ejmSpSec.seguridad.util.FiltroMonitoreo;
 import mx.com.qtx.ejmSpSec.seguridad.util.GeneradorTokensJWT_JJWT0_12_6_SHA512;
+import mx.com.qtx.ejmSpSec.seguridad.web.FiltroTokensJwt_SS;
+import mx.com.qtx.ejmSpSec.seguridad.web.IExtractorTokenJwtPeticionHttp;
 
 @Configuration
 @EnableWebSecurity
@@ -86,7 +86,9 @@ public class ConfiguracionSeguridad {
 			)
 			.csrf(Customizer.withDefaults())
 			.httpBasic(Customizer.withDefaults())
-			.formLogin(Customizer.withDefaults())
+			.formLogin(config -> config.loginPage("/login")
+					                   .successForwardUrl("/vistaExitoLogin")
+					  )
 			.logout(config -> config.invalidateHttpSession(true))
 		  	.addFilterBefore(filtroMonitoreo, WebAsyncManagerIntegrationFilter.class)
 			.sessionManagement(config -> config.maximumSessions(1));

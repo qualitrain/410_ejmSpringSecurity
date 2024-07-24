@@ -6,8 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import jakarta.servlet.http.HttpServletRequest;
-import mx.com.qtx.ejmSpSec.seguridad.rest.IExtractorTokenJwtPeticionHttp;
 import mx.com.qtx.ejmSpSec.seguridad.servicios.IGeneradorTokensJWT;
+import mx.com.qtx.ejmSpSec.seguridad.web.IExtractorTokenJwtPeticionHttp;
 
 @Component
 public class ExtractorTokenJwtPeticiones_JJwt implements IExtractorTokenJwtPeticionHttp{

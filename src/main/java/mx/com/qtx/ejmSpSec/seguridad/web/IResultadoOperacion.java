@@ -1,4 +1,4 @@
-package mx.com.qtx.ejmSpSec.seguridad.rest;
+package mx.com.qtx.ejmSpSec.seguridad.web;
 
 public interface IResultadoOperacion {
 	Object getObjResultadoOk();

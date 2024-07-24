@@ -18,8 +18,8 @@ import org.springframework.stereotype.Service;
 
 import mx.com.qtx.ejmSpSec.seguridad.entidades.Autenticacion;
 import mx.com.qtx.ejmSpSec.seguridad.entidades.TokenJWT;
-import mx.com.qtx.ejmSpSec.seguridad.rest.IResultadoOperacion;
-import mx.com.qtx.ejmSpSec.seguridad.rest.IServicioAutenticacionJWT;
+import mx.com.qtx.ejmSpSec.seguridad.web.IResultadoOperacion;
+import mx.com.qtx.ejmSpSec.seguridad.web.IServicioAutenticacionJWT;
 
 @Service
 public class ServicioAutenticacionSS implements IServicioAutenticacionJWT {

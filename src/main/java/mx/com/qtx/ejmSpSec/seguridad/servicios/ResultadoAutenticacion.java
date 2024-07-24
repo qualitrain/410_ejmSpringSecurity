@@ -3,7 +3,7 @@ package mx.com.qtx.ejmSpSec.seguridad.servicios;
 import java.util.HashMap;
 import java.util.Map;
 
-import mx.com.qtx.ejmSpSec.seguridad.rest.IResultadoOperacion;
+import mx.com.qtx.ejmSpSec.seguridad.web.IResultadoOperacion;
 
 
 public class ResultadoAutenticacion implements IResultadoOperacion{
