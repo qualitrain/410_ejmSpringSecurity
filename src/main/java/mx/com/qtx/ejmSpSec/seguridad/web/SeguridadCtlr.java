@@ -20,7 +20,7 @@ public class SeguridadCtlr {
 	@GetMapping("/login")
 	String login() {
 		bitacora.info("login()");
-		return "seguridad/login";
+		return "seguridad/loginConOAuth2";
 	}
 	
 	@GetMapping("/logout")

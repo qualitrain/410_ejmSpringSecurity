@@ -86,10 +86,13 @@ public class ConfiguracionSeguridad {
 			)
 			.csrf(Customizer.withDefaults())
 			.httpBasic(Customizer.withDefaults())
+			.oauth2Login( cust-> cust.loginPage("/login")
+					                 .permitAll())
 			.formLogin(config -> config.loginPage("/login")
+					                   .permitAll()
 					                   .successForwardUrl("/vistaExitoLogin")
 					  )
-			.logout(config -> config.invalidateHttpSession(true))
+			.logout(config -> config.invalidateHttpSession(true).deleteCookies("JSESSIONID"))
 		  	.addFilterBefore(filtroMonitoreo, WebAsyncManagerIntegrationFilter.class)
 			.sessionManagement(config -> config.maximumSessions(1));
 
