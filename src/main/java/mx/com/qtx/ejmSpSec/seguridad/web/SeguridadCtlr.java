@@ -28,9 +28,15 @@ public class SeguridadCtlr {
 		bitacora.info("logout()");
 		return "seguridad/logout";
 	}
+	
 	// Para soportar el cambio en la URL de éxito en la autenticación
 	@PostMapping("/vistaExitoLogin")
 	public String getVistaInicial(Model modelo) {
 		return "seguridad/vistaUsuariosAutenticados";
+	}
+	
+	@GetMapping("/usuario_comprometido")
+	public String getAvisoProblemaCuenta() {
+		return "seguridad/vistaAvisoProblemaCuenta";
 	}
 }

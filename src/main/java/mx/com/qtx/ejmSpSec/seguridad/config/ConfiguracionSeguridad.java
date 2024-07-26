@@ -30,6 +30,7 @@ import org.springframework.security.provisioning.InMemoryUserDetailsManager;
 import org.springframework.security.provisioning.JdbcUserDetailsManager;
 import org.springframework.security.provisioning.UserDetailsManager;
 import org.springframework.security.web.SecurityFilterChain;
+import org.springframework.security.web.access.AccessDeniedHandler;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 import org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter;
 import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
@@ -75,7 +76,8 @@ public class ConfiguracionSeguridad {
 	@Bean
 	@Order(2)	
 	SecurityFilterChain getSecurityFilterChainMvc(HttpSecurity http,
-            @Qualifier("filtroMonitoreo02") FiltroMonitoreo filtroMonitoreo) 
+            @Qualifier("filtroMonitoreo02") FiltroMonitoreo filtroMonitoreo,
+            AccessDeniedHandler manejadorAccesosDenegados) 
 		    throws Exception {
 		
 		RequestMatcher urisXatender = this.buildRequestMatcherTodosExcepto("/api/**", "/api/autenticacion");
@@ -99,7 +101,8 @@ public class ConfiguracionSeguridad {
 					  )
 			.logout(config -> config.invalidateHttpSession(true).deleteCookies("JSESSIONID"))
 		  	.addFilterBefore(filtroMonitoreo, WebAsyncManagerIntegrationFilter.class)
-			.sessionManagement(config -> config.maximumSessions(1));
+			.sessionManagement(config -> config.maximumSessions(1))
+			.exceptionHandling(cust->cust.accessDeniedHandler(manejadorAccesosDenegados));
 
 		return http.build();
 	}
@@ -251,4 +254,9 @@ public class ConfiguracionSeguridad {
 		  bitacora.info("Bean AuthorizationEventPublisher instanciado");
 		  return new SpringAuthorizationEventPublisher(aep);
 	}
+	
+	 @Bean
+	 public AccessDeniedHandler publicarAccessDeniedHandler(){
+	      return new ManejadorAccesosDenegados();
+	 }
 }
