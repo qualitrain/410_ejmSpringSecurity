@@ -5,10 +5,13 @@ import javax.sql.DataSource;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.context.ApplicationEventPublisher;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.annotation.Order;
+import org.springframework.security.authentication.AuthenticationEventPublisher;
 import org.springframework.security.authentication.AuthenticationManager;
+import org.springframework.security.authentication.DefaultAuthenticationEventPublisher;
 import org.springframework.security.authentication.ProviderManager;
 import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
 import org.springframework.security.config.Customizer;
@@ -233,5 +236,11 @@ public class ConfiguracionSeguridad {
 	FiltroMonitoreo getFiltroMonitoreoCad02() {
 		FiltroMonitoreo filtroMonitoreo = new FiltroMonitoreo();
 		return filtroMonitoreo;
+	}
+	
+	@Bean
+	AuthenticationEventPublisher publicadorEvtAutenticacion(ApplicationEventPublisher aep) {
+		  bitacora.info("Bean AuthenticationEventPublisher instanciado");
+		  return new DefaultAuthenticationEventPublisher(aep);
 	}
 }
