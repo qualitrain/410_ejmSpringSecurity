@@ -17,6 +17,7 @@ import org.springframework.security.authentication.dao.DaoAuthenticationProvider
 import org.springframework.security.authorization.AuthorizationEventPublisher;
 import org.springframework.security.authorization.SpringAuthorizationEventPublisher;
 import org.springframework.security.config.Customizer;
+import org.springframework.security.config.annotation.method.configuration.EnableMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.http.SessionCreationPolicy;
@@ -47,6 +48,7 @@ import mx.com.qtx.ejmSpSec.seguridad.web.IExtractorTokenJwtPeticionHttp;
 
 @Configuration
 @EnableWebSecurity
+@EnableMethodSecurity
 public class ConfiguracionSeguridad {
 	
 	private static Logger bitacora = LoggerFactory.getLogger(ConfiguracionSeguridad.class);

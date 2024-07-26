@@ -34,3 +34,8 @@ Debe devolver un JSon con la llave codificada en base 64
 2. GET http://localhost:8068/appQtx/api/catalogos/nombres
 Cabecera HTTP: 
 Authorization: Bearer <Llave> devuelta en paso 1 (La llave debe escribirse SIN las comillas exteriores
+
+-----------------------------------
+Pendientes Migración desde SS 5:
+
+Pruebas de gestión de sesiones

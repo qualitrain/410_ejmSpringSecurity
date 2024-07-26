@@ -2,9 +2,13 @@ package mx.com.qtx.ejmSpSec.web;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+
+import mx.com.qtx.ejmSpSec.entidades.Sugerencia;
 
 @Controller
 public class RaizCtrlr {
@@ -35,4 +39,10 @@ public class RaizCtrlr {
 		return "vistaInfo";
 	}
 	
+	@PostMapping("/info")
+	@PreAuthorize("hasAuthority('ROLE_ADMIN')")
+	public String procesaSugerencia(Sugerencia sugerencia, Model modelo) {
+		bitacora.info("Sugerencia recibida:" + sugerencia);
+		return "vistaRaiz";
+	}
 }

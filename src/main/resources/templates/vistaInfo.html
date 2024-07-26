@@ -1,7 +1,7 @@
-<html>
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
 	<meta charset="ISO-8859-1">
-	<title>Menu</title>
+	<title>Info</title>
 	<link href="css/estilo.css" rel="stylesheet">
 </head>
 <body>
@@ -10,6 +10,16 @@
     Esta es una maqueta de ejemplo para probar el proceso de <strong>Autorizaci&oacute;n</strong>
     <p>
     Debe ser accesible a todos, est&eacute;n o no autenticados
+    <hr>
+    <p>Registra una Sugerencia
+    <form method="post" action="./info">
+    	<label for="idAsunto">Asunto:</label>
+    	<input type="text" name="asunto" id="idAsunto">
+    	<label for="idDescripcion">Descripcion:</label>
+    	<input type="text" name="descripcion" id="idDescripcion">
+  		<input type="hidden" th:attr="name=${_csrf.parameterName}, value=${_csrf.token}"  />    	
+    	<input type="submit" value="Enviar">
+    </form>
     <p><a href="./">Home</a>
     <p><a href="logout">Salir de la sesi&oacute;n</a>
 </body>
