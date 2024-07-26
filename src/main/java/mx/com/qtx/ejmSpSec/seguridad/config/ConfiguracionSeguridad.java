@@ -14,6 +14,8 @@ import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.DefaultAuthenticationEventPublisher;
 import org.springframework.security.authentication.ProviderManager;
 import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
+import org.springframework.security.authorization.AuthorizationEventPublisher;
+import org.springframework.security.authorization.SpringAuthorizationEventPublisher;
 import org.springframework.security.config.Customizer;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
@@ -242,5 +244,11 @@ public class ConfiguracionSeguridad {
 	AuthenticationEventPublisher publicadorEvtAutenticacion(ApplicationEventPublisher aep) {
 		  bitacora.info("Bean AuthenticationEventPublisher instanciado");
 		  return new DefaultAuthenticationEventPublisher(aep);
+	}
+	
+	@Bean
+	AuthorizationEventPublisher publicadorEvtAutorizacion(ApplicationEventPublisher aep) {
+		  bitacora.info("Bean AuthorizationEventPublisher instanciado");
+		  return new SpringAuthorizationEventPublisher(aep);
 	}
 }
